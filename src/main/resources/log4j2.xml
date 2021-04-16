@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Schermo" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="FILE" fileName="logs/logfile.log" append="true">
+            <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" />
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="it.uniroma3.siw.main.Main" level="debug">
+            <AppenderRef ref="Schermo"/>
+        </Logger>
+
+        <Logger name="it.uniroma3.siw.model" level="trace" additivity="false">
+            <AppenderRef ref="Schermo"/>
+            <AppenderRef ref="FILE"/>
+        </Logger>
+
+        <Logger name="org.hibernate.resource.jdbc.internal.ResourceRegistryStandardImpl"
+                level="trace" additivity="false">
+            <AppenderRef ref="Schermo"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="FILE"/>
+        </Root>
+    </Loggers>
+</Configuration>
