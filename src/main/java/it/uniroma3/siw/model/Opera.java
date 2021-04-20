@@ -1,7 +1,6 @@
-package it.unirom3.siw.model;
+package it.uniroma3.siw.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.List;
 
@@ -22,6 +21,7 @@ public class Opera {
     private List<Collezione> collezioni;
 
     @ManyToOne
+    @JoinColumn(name = "autore_id")
     private Artista autore;
 
     public Long getId() {

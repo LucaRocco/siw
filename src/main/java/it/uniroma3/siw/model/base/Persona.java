@@ -1,4 +1,4 @@
-package it.unirom3.siw.model.base;
+package it.uniroma3.siw.model.base;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;

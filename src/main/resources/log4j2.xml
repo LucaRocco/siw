@@ -10,7 +10,7 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="it.uniroma3.siw.main.Main" level="debug">
+        <Logger name="it.uniroma3.siw.Application" level="debug">
             <AppenderRef ref="Schermo"/>
         </Logger>
 
@@ -24,7 +24,7 @@
             <AppenderRef ref="Schermo"/>
         </Logger>
         <Root level="info">
-            <AppenderRef ref="FILE"/>
+            <AppenderRef ref="Schermo"/>
         </Root>
     </Loggers>
 </Configuration>

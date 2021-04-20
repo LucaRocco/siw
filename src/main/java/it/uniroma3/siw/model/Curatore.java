@@ -1,6 +1,6 @@
-package it.unirom3.siw.model;
+package it.uniroma3.siw.model;
 
-import it.unirom3.siw.model.base.Persona;
+import it.uniroma3.siw.model.base.Persona;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

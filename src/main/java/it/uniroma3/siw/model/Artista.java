@@ -1,6 +1,6 @@
-package it.unirom3.siw.model;
+package it.uniroma3.siw.model;
 
-import it.unirom3.siw.model.base.Persona;
+import it.uniroma3.siw.model.base.Persona;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -22,7 +22,6 @@ public class Artista extends Persona {
     private String nazionalita;
 
     @OneToMany(mappedBy = "autore")
-    @JoinColumn(name = "autore_id")
     private List<Opera> opere;
 
     public Artista() {

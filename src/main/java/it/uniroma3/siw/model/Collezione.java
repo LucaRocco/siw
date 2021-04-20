@@ -1,4 +1,4 @@
-package it.unirom3.siw.model;
+package it.uniroma3.siw.model;
 
 import javax.persistence.*;
 import java.util.List;
