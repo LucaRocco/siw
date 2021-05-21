@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title=#{home.title})"></head>
+
+<body>
+<nav th:replace="fragments/base.html :: navbar"></nav>
+    <div class="artist">
+        <div class="artist-header">
+            <div class="artist-header-cover"></div>
+            <div class="artist-header-content">
+                <img th:src="@{/images/pippo.jpg}" />
+
+            </div>
+        </div>
+    </div>
+
+    <div class="artist-container">
+        <div class="artist-sidebar">
+            <h4>Pippo Baudo</h4>
+            01/01/1955, Roma
+            <hr class="mt-4 mb-4" />
+            <p>
+                Qui ci andrebbe una bellissima biografia per il magnifico artista Pippo Baudo che effettivamente
+                non è un artista ma hei, sono io a decidere cosa mettere in questa pagina e quindi Pippo Baudo è
+                un artista :)
+            </p>
+            <hr class="mt-4 mb-4" />
+        </div>
+        <div style="margin-left: 2%;">
+
+            <div style="border-bottom: 1px solid black;">
+                <b style="margin-top: 0; font-size: 150%;">Opere</b>
+            </div>
+
+            <div class="artist-content" style="padding-top: 2%;">
+                <div class="artist-content-item">
+                    <img class="image-inside-artist"
+                        src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg" />
+                    <div class="artist-content-item-description">
+                        <a href="opera.html">Urlo di Munch</a>
+                        <p>LA GRANDE OPERA DI PIPPO BAUDO</p>
+                    </div>
+                </div>
+                <div class="artist-content-item">
+                    <img class="image-inside-artist"
+                        src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg" />
+                    <div class="artist-content-item-description">
+                        <a href="opera.html">Urlo di Munch</a>
+                        <p>LA GRANDE OPERA DI PIPPO BAUDO</p>
+                    </div>
+                </div>
+                <div class="artist-content-item">
+                    <img class="image-inside-artist"
+                        src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg" />
+                    <div class="artist-content-item-description">
+                        <a href="opera.html">Urlo di Munch</a>
+                        <p>LA GRANDE OPERA DI PIPPO BAUDO</p>
+                    </div>
+                </div>
+                <div class="artist-content-item">
+                    <img class="image-inside-artist"
+                        src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg" />
+                    <div class="artist-content-item-description">
+                        <a href="opera.html">Urlo di Munch</a>
+                        <p>LA GRANDE OPERA DI PIPPO BAUDO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:fragment="fragments/base.html :: footer"></footer>
+    <div class="background"></div>
+</body>
+</html>

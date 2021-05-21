@@ -1,0 +1,94 @@
+html {
+    font-size: 20px;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+@media (max-width: 740px) {
+    html {
+        font-size: 0.5em;
+    }
+}
+
+section {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#show-box {
+    padding: 30px 50px;
+    display: flex;
+    background-image: url("../images/smoky.png");
+    justify-content: space-around;
+}
+
+.attribute {
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 2em;
+}
+
+.sidebar {
+    width: 40%;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+.image > img {
+    width: 60%;
+}
+
+#author {
+    color: black;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 0.8em;
+    font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 30px;
+    }
+
+    .image {
+        margin-top: 5%;
+        display: flex;
+        flex: 1;
+        max-height: 75%;
+        max-width: 75%;
+    }
+
+    #show-box {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        background-image: url("../images/smoky.png");
+        flex-direction: column-reverse;
+    }
+
+    .image > img {
+        margin-top: 20%;
+        width: 100%;
+        height: 100%;
+    }
+
+    .sidebar {
+        text-align: center;
+        width: 100vw;
+    }
+
+    h4 {
+        margin-bottom: 0;
+        margin-top: 10%;
+    }
+}

@@ -1,0 +1,163 @@
+html {
+    font-size: 20px;
+    font-family: 'Didact Gothic', sans-serif;
+    margin: 0;
+}
+
+body {
+    background-color: transparent;
+    background-image: url("../images/smoky.png");
+    background-repeat: no-repeat;
+}
+
+#image-container {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    justify-content: space-around;
+    display: flex;
+    position: relative;
+    top: 20%;
+    background-color: transparent;
+}
+
+.artist_image {
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+.artist_image > img {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.information {
+    margin-top: 3%;
+}
+
+.image-inside-artist {
+    width: 25%;
+    height: 25%;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.artist-header-cover {
+    height: 20vw;
+}
+
+.artist-header .artist-header-content {
+    position: relative;
+    display: flex;
+}
+
+.artist-header-content > img {
+    height: 15%;
+    width: 15%;
+    overflow: hidden;
+    margin-top: -17%;
+    border-radius: 9px;
+    margin-left: 3%;
+}
+
+.artist-container {
+    padding: 30px 50px;
+    display: flex;
+    background-color: transparent;
+}
+
+.artist-sidebar {
+    width: 40%;
+}
+
+.artist-content {
+    padding-left: 5%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+
+.artist-content-item {
+    justify-content: center;
+    display: flex;
+    flex: 1;
+    margin-bottom: 2%;
+    min-width: 50%;
+    min-height: 50%;
+}
+
+.artist-content-item-description {
+    margin-left: 2%;
+    width: 50%;
+}
+
+.artist-content-item-description > a {
+    color: black;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 30px;
+    }
+
+    .artist-content {
+        padding-left: 5%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .artist-container {
+        padding: 0px 0px;
+        display: flex;
+        background-color: transparent;
+        flex-direction: column;
+    }
+
+    .artist-sidebar {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .artist-header-cover {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    h4 {
+        text-align: center;
+    }
+
+    .artist-header-content {
+        display: flex;
+        justify-content: center;
+    }
+
+    .artist-header-content > img {
+        height: 40%;
+        width: 40%;
+    }
+
+    .image-inside-artist {
+        min-width: 50%;
+        min-height: 50%;
+    }
+
+    .artist-content-item {
+        align-items: center;
+        flex-direction: column;
+        border-bottom: 1px solid black;
+    }
+
+    .artist-content {
+        padding-left: 0%;
+    }
+
+    .artist-content-item-description {
+        width: 100%;
+        text-align: center;
+    }
+}

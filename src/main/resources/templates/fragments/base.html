@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="headerfiles(title)">
+    <meta charset="UTF-8"/>
+    <link th:href="@{/css/base.css}" rel="stylesheet">
+    <link th:href="@{/css/home.css}" rel="stylesheet">
+    <link th:href="@{/css/artista.css}" rel="stylesheet">
+    <link th:href="@{/css/collezione.css}" rel="stylesheet">
+    <link th:href="@{/css/opera.css}" rel="stylesheet">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<nav th:fragment="navbar" class="nav-container">
+    <a id="title" class="nav-item" th:href="home">Museo RoPi</a>
+    <div class="border"></div>
+    <a class="nav-item" th:href="artista">Artisti</a>
+    <div class="border"></div>
+    <a class="nav-item" th:href="collezione">Collezioni</a>
+    <div class="border"></div>
+    <a id="last" class="nav-item" th:href="informazioni">Informazioni</a>
+</nav>
+
+<footer th:fragment="footer">
+    <div id="footer-line">
+        Museo RoPi
+    </div>
+</footer>
+</body>
+</html>

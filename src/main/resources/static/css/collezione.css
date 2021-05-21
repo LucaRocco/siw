@@ -1,0 +1,49 @@
+html {
+    font-size: 20px;
+    font-family: 'Didact Gothic', sans-serif;
+    margin: 0;
+}
+
+body {
+    background-color: transparent;
+    background-image: url("../images/smoky.png");
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 30%;
+    height: 600px;
+}
+
+.collection-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.collezione-content {
+    display: flex;
+}
+
+.collezione-content > .border {
+    height: 500px;
+    margin-top: 5%;
+    padding: 0.5%;
+    border-right: 1px solid black;
+}
+
+.opere-list {
+    margin-left: 5%;
+}
+
+li > a {
+    color: #34CCC6;
+}
+
+#collection-title {
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5%;
+}

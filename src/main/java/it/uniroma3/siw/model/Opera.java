@@ -1,9 +1,12 @@
 package it.uniroma3.siw.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.Year;
 import java.util.List;
 
+@Data
 @Entity
 public class Opera {
 
@@ -23,52 +26,4 @@ public class Opera {
     @ManyToOne
     @JoinColumn(name = "autore_id")
     private Artista autore;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitolo() {
-        return titolo;
-    }
-
-    public void setTitolo(String titolo) {
-        this.titolo = titolo;
-    }
-
-    public Year getAnnoRealizzazione() {
-        return annoRealizzazione;
-    }
-
-    public void setAnnoRealizzazione(Year annoRealizzazione) {
-        this.annoRealizzazione = annoRealizzazione;
-    }
-
-    public String getDescrizione() {
-        return descrizione;
-    }
-
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
-    }
-
-    public List<Collezione> getCollezioni() {
-        return collezioni;
-    }
-
-    public void setCollezioni(List<Collezione> collezioni) {
-        this.collezioni = collezioni;
-    }
-
-    public Artista getAutore() {
-        return autore;
-    }
-
-    public void setAutore(Artista autore) {
-        this.autore = autore;
-    }
 }

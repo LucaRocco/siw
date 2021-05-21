@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+
+<head th:replace="fragments/base.html :: headerfiles(title=#{home.title})"></head>
+
+<body>
+    <nav th:replace="fragments/base.html :: navbar"></nav>
+    <div class="gallery-title">Le nostre opere</div>
+    <div class="gallery">
+        <div class="gallery-entry">
+            <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
+        </div>
+
+        <div class="gallery-entry">
+            <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
+        </div>
+
+        <div class="gallery-entry">
+            <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
+        </div>
+
+        <div class="gallery-entry">
+            <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
+        </div>
+
+        <div class="gallery-entry">
+                <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
+        </div>
+    </div>
+    <footer th:replace="fragments/base.html :: footer"></footer>
+</body>
+
+</html>
