@@ -16,11 +16,11 @@ public class Amministratore {
     private Long id;
 
     @Column(unique = true, nullable = false, length = 100)
-    private String email;
+    private String username;
 
     @Column(nullable = false, length = 100)
     private String password;
 
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 20)
     private String ruolo;
 }

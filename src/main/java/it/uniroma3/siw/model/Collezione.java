@@ -19,6 +19,6 @@ public class Collezione {
 
     private String descrizione;
 
-    @ManyToMany(mappedBy = "collezioni")
+    @ManyToMany(mappedBy = "collezioni", fetch = FetchType.EAGER)
     private List<Opera> opere;
 }

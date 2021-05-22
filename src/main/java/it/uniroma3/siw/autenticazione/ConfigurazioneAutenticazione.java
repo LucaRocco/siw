@@ -2,7 +2,6 @@ package it.uniroma3.siw.autenticazione;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -11,7 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
-import static it.uniroma3.siw.utility.Costanti.AMMINISTRATORE;
 
 @Configuration
 @EnableWebSecurity
@@ -27,14 +25,13 @@ public class ConfigurazioneAutenticazione extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/admin/**").hasAnyAuthority(AMMINISTRATORE)
-                .anyRequest().authenticated()
+                .antMatchers("/admin/**").authenticated()
+                .antMatchers("/**").permitAll()
                 .and().formLogin()
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/admin/collezioni")
                 .and().logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/index")
+                .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
                 .clearAuthentication(true).permitAll();
     }
@@ -43,8 +40,8 @@ public class ConfigurazioneAutenticazione extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(this.datasource)
-                .authoritiesByUsernameQuery("SELECT email, ruolo FROM amministratore WHERE email=?")
-                .usersByUsernameQuery("SELECT email, password, 1 as enabled FROM amministratore WHERE email=?");
+                .authoritiesByUsernameQuery("SELECT username, ruolo FROM amministratore WHERE username=?")
+                .usersByUsernameQuery("SELECT username, password, 1 as enabled FROM amministratore WHERE username=?");
     }
 
     @Bean
