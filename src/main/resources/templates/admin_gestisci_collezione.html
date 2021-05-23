@@ -7,7 +7,7 @@
     <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
     </div>
-        <input type="hidden" th:field="*{id}"/>
+    <input type="hidden" th:field="*{id}"/>
     <div>
         <span>Nome:</span>
         <span><input type="text" th:field="*{nome}"/></span>
@@ -18,31 +18,31 @@
         <span><input type="text" th:field="*{descrizione}"/></span>
         <span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
     </div>
-
-    <table class="styled-table">
-        <thead>
-        <tr>
-            <th>Titolo</th>
-            <th>Anno Realizzazione</th>
-            <th>Descrizione</th>
-            <th>Autore</th>
-            <th>Elimina</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="opera: *{opere}">
-            <td th:text="${opera.titolo}"></td>
-            <td th:text="${opera.annoRealizzazione}"></td>
-            <td th:text="${opera.descrizione}"></td>
-            <td th:text="${opera.autore.nome}"></td>
-            <td><a type="button" th:text="#{button.delete}"
-                   th:href="@{/admin/collezione/{id}/gestisci/{idOpera}/elimina(id=*{id},idOpera=${opera.id})}"></a></td>
-        </tr>
-        </tbody>
-    </table>
     <div>
         <span><button type="submit">Invio</button></span>
     </div>
 </form>
+
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>Titolo</th>
+        <th>Anno Realizzazione</th>
+        <th>Descrizione</th>
+        <th>Autore</th>
+        <th>Elimina</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="opera: *{opere}">
+        <td th:text="${opera.titolo}"></td>
+        <td th:text="${opera.annoRealizzazione}"></td>
+        <td th:text="${opera.descrizione}"></td>
+        <td th:text="${opera.autore.nome}"></td>
+        <td><a type="button" th:text="#{button.delete}"
+               th:href="@{/admin/collezione/{id}/gestisci/{idOpera}/elimina(id=${collezioneCorrente.id},idOpera=${opera.id})}"></a></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

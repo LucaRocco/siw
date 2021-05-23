@@ -1,6 +1,7 @@
 package it.uniroma3.siw.service;
 
 import it.uniroma3.siw.model.Collezione;
+import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.repository.CollezioneRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class CollezioneService {
         return this.collezioneRepository.findAll();
     }
 
-    public Collezione getById(Long idCollezione) {
+    public Collezione findById(Long idCollezione) {
         return collezioneRepository.findById(idCollezione).orElse(null);
     }
 
@@ -38,6 +39,12 @@ public class CollezioneService {
         }
         collezione.setNome(collezioneCorrente.getNome());
         collezione.setDescrizione(collezioneCorrente.getDescrizione());
+        return this.collezioneRepository.save(collezione);
+    }
+
+    public Collezione eliminaOpera(Long idCollezione, Opera opera) {
+        Collezione collezione = this.findById(idCollezione);
+        collezione.eliminaOpera(opera);
         return this.collezioneRepository.save(collezione);
     }
 }
