@@ -4,6 +4,9 @@
 <body>
 <navbar th:replace="fragments/admin_fragment.html :: navbar"></navbar>
 <h1>Gestione Collezioni</h1>
+
+<a th:href="@{/admin/crea_collezione}" th:text="#{button.create.collection}"></a>
+
 <table class="styled-table">
     <thead>
     <tr>

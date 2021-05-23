@@ -28,23 +28,24 @@ public class CollezioneService {
         return this.collezioneRepository.save(collezione);
     }
 
-    public Collezione aggiornaCollezione(Collezione collezioneCorrente) {
+    public void aggiornaCollezione(Long idCollezione, Collezione collezioneCorrente) {
         Collezione collezione = this.collezioneRepository.
-                findById(collezioneCorrente.getId()).orElseThrow(() -> new EntityNotFoundException("Collezione non trovata"));
-        if(collezioneCorrente.getOpere() != null) {
-            collezione.setOpere(collezioneCorrente.getOpere());
-        }
-        if(collezioneCorrente.getCuratore() != null) {
-            collezione.setCuratore(collezioneCorrente.getCuratore());
-        }
+                findById(idCollezione).orElseThrow(() -> new EntityNotFoundException("Collezione non trovata"));
         collezione.setNome(collezioneCorrente.getNome());
         collezione.setDescrizione(collezioneCorrente.getDescrizione());
-        return this.collezioneRepository.save(collezione);
+        this.collezioneRepository.save(collezione);
     }
 
-    public Collezione eliminaOpera(Long idCollezione, Opera opera) {
+    public void eliminaOpera(Long idCollezione, Opera opera) {
         Collezione collezione = this.findById(idCollezione);
         collezione.eliminaOpera(opera);
-        return this.collezioneRepository.save(collezione);
+        this.collezioneRepository.save(collezione);
     }
+
+    public void aggiungiOpera(Long idCollezione, Opera opera) {
+        Collezione collezione = this.findById(idCollezione);
+        collezione.addOpera(opera);
+        this.collezioneRepository.save(collezione);
+    }
+
 }

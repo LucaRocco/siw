@@ -3,7 +3,7 @@
 <head th:replace="fragments/admin_fragment.html :: header"></head>
 <body>
 <nav th:replace="fragments/admin_fragment.html :: navbar"></nav>
-<form th:action="@{/admin/collezioni}" method="POST" th:object="${collezioneCorrente}">
+<form th:action="@{/admin/collezione/{idCollezione}/gestisci(idCollezione=${collezioneCorrente.id})}" method="POST" th:object="${collezioneCorrente}">
     <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
     </div>
@@ -19,8 +19,16 @@
         <span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
     </div>
     <div>
-        <span><button type="submit">Invio</button></span>
+        <span><button type="submit" th:text="#{button.send}">Invio</button></span>
     </div>
+</form>
+
+<form th:action="@{/admin/collezione/{idCollezione}/gestisci/aggiungiOpera(idCollezione=${collezioneCorrente.id})}" method="post">
+    <select name="operaSelezionata">
+        <option th:each="opera : *{opere}" th:value="${opera.id}" th:text="${opera.titolo}">
+        </option>
+    </select>
+    <span><button type="submit" th:text="#{button.add}">Aggiungi</button></span>
 </form>
 
 <table class="styled-table">
@@ -34,7 +42,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="opera: *{opere}">
+    <tr th:each="opera: *{opereCollezione}">
         <td th:text="${opera.titolo}"></td>
         <td th:text="${opera.annoRealizzazione}"></td>
         <td th:text="${opera.descrizione}"></td>
@@ -44,5 +52,7 @@
     </tr>
     </tbody>
 </table>
+
+
 </body>
 </html>

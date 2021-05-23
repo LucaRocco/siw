@@ -3,10 +3,7 @@ package it.uniroma3.siw.model;
 import it.uniroma3.siw.model.base.Persona;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
@@ -17,6 +14,7 @@ import java.util.List;
 public class Curatore extends Persona {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String matricola;
     private String email;
     private String numeroDiTelefono;

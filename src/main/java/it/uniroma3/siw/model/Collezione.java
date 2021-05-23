@@ -3,6 +3,7 @@ package it.uniroma3.siw.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,6 +11,7 @@ import java.util.Objects;
 @Entity
 public class Collezione {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne
@@ -23,8 +25,20 @@ public class Collezione {
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Opera> opere;
 
+    public Collezione() {
+        this.opere = new ArrayList<>();
+    }
+
     public void eliminaOpera(Opera opera) {
         this.getOpere().remove(opera);
+    }
+
+    public void addOpera(Opera opera) {
+        this.opere.add(opera);
+    }
+
+    public boolean contieneOpera(Opera opera) {
+        return this.opere.contains(opera);
     }
 
     @Override
