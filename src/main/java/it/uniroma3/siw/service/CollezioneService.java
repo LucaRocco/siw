@@ -1,6 +1,7 @@
 package it.uniroma3.siw.service;
 
 import it.uniroma3.siw.model.Collezione;
+import it.uniroma3.siw.model.Curatore;
 import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.repository.CollezioneRepository;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,9 @@ public class CollezioneService {
         return collezioneRepository.findById(idCollezione).orElse(null);
     }
 
-    public Collezione salvaCollezione(Collezione collezione) {
-        return this.collezioneRepository.save(collezione);
+    public void salvaCollezione(Collezione collezione, Curatore curatore) {
+        collezione.setCuratore(curatore);
+        this.collezioneRepository.save(collezione);
     }
 
     public void aggiornaCollezione(Long idCollezione, Collezione collezioneCorrente) {
@@ -48,4 +50,7 @@ public class CollezioneService {
         this.collezioneRepository.save(collezione);
     }
 
+    public void eliminaCollezioneById(Long idCollezione) {
+        this.collezioneRepository.deleteById(idCollezione);
+    }
 }

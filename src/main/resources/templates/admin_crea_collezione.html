@@ -11,13 +11,13 @@
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
     </div>
     <div>
-        <span th:text="#{name}"></span>
-        <span><input type="text" th:field="*{nome}"/></span>
+        <b><span th:text="#{name}"></span></b>
+        <div><input type="text" th:field="*{nome}"/></div>
         <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
     </div>
     <div>
-        <span th:text="#{description}"></span>
-        <span><input type="text" th:field="*{descrizione}"/></span>
+        <b><span th:text="#{description}"></span></b>
+        <div><input type="text" th:field="*{descrizione}"/></div>
         <span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
     </div>
     <select name="curatoreSelezionato">
@@ -25,7 +25,7 @@
         </option>
     </select>
     <div>
-        <span><button type="submit" th:text="#{button.send}">Invio</button></span>
+        <span><button class="a-button" type="submit" th:text="#{button.send}">Invio</button></span>
     </div>
 </form>
 

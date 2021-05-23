@@ -11,6 +11,7 @@ import java.util.List;
 public class Opera {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false)
@@ -19,6 +20,8 @@ public class Opera {
     private Year annoRealizzazione;
 
     private String descrizione;
+
+    private String foto;
 
     @ManyToMany(mappedBy = "opere")
     private List<Collezione> collezioni;

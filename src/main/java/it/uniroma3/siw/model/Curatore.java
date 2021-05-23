@@ -20,12 +20,6 @@ public class Curatore extends Persona {
     private String numeroDiTelefono;
     @OneToMany(mappedBy = "curatore")
     private List<Collezione> collezioniGestite;
-    @Column(nullable = false)
-    private String nome;
-    @Column(nullable = false)
-    private String cognome;
-    private String luogoDiNascita;
-    private Date dataDiNascita;
 
     public Curatore(String nome, String cognome) {
         super(nome, cognome);

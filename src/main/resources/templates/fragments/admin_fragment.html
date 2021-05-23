@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header">
-  <meta charset="UTF-8">
-  <link th:href="@{/css/admin.css}" rel="stylesheet">
-  <link th:href="@{/css/base.css}" rel="stylesheet">
-  <title>Admin</title>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/admin.css}" rel="stylesheet">
+    <link th:href="@{/css/base.css}" rel="stylesheet">
+    <title>Admin</title>
 </head>
 <body>
 <nav th:fragment="navbar" class="nav-container">
-  <a id="title" class="nav-item" th:href="@{/home}">Museo RoPi</a>
-  <div class="border"></div>
-  <a class="nav-item" th:href="@{/admin/collezioni}">Collezioni</a>
-  <div class="border"></div>
-  <a class="nav-item" th:href="@{/admin/opere}">Opere</a>
+    <a id="title" class="nav-item" th:href="@{/home}">Museo RoPi</a>
+    <div class="border"></div>
+    <a class="nav-item" th:href="@{/admin/collezioni}">Collezioni</a>
+    <div class="border"></div>
+    <a class="nav-item" th:href="@{/admin/opere}">Opere</a>
 </nav>
 </body>
 </html>

@@ -1,48 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
+<head th:include="fragments/base.html :: headerfiles(title=#{opera.title})">
+</head>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MuseoRoPi-Opera</title>
     <link th:href="@{/css/opera.css}" type="text/css" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav id="nav-container">
-        <a id="title" class="nav-item" href="home.html">Museo RoPi</a>
-        <div class="border"></div>
-        <a class="nav-item" href="https://www.google.it/">Artisti</a>
-        <div class="border"></div>
-        <a class="nav-item" href="https://www.google.it/">Collezioni</a>
-        <div class="border"></div>
-        <a id="last" class="nav-item" href="https://www.google.it/">Informazioni</a>
-    </nav>
-    <section>
-        <div id="show-box">
-            <div class="sidebar">
-                <h4>L'urlo</h4>
-                <a id="author" href="artista.html">Pippo Baudo</a>
-                <p>
-                    Qui ci andrebbe una bellissima descrizione per la magnifica opera dell'artista Pippo Baudo che
-                    effettivamente
-                    non è un artista ma hei, sono io a decidere cosa mettere in questa pagina e quindi Pippo Baudo è
-                    un artista :)
-                </p>
-                <hr class="mt-4 mb-4" />
-            </div>
-            <div class="image">
-                <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
-            </div>
+<nav th:replace="fragments/base.html :: navbar"></nav>
+<section>
+    <div id="show-box">
+        <div class="sidebar">
+            <h4 th:text="${opera.titolo}"></h4>
+            <a id="author" href="artista.html" th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></a>
+            <p th:text="${opera.descrizione}">
+            </p>
+            <hr class="mt-4 mb-4"/>
         </div>
-    </section>
-    <footer>
-        <div id="footer-line">
-            Museo RoPi
+        <div class="image">
+            <img th:src="${opera.foto}">
         </div>
-    </footer>
+    </div>
+</section>
+<footer th:replace="fragments/base.html :: footer"></footer>
 </body>
-
 </html>

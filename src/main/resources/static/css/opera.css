@@ -9,6 +9,12 @@ html {
     }
 }
 
+body {
+    background-image: url("../images/smoky.png");
+    background-repeat: no-repeat;
+    background-position: inherit;
+}
+
 section {
     background-color: white;
     display: flex;
@@ -19,7 +25,6 @@ section {
 #show-box {
     padding: 30px 50px;
     display: flex;
-    background-image: url("../images/smoky.png");
     justify-content: space-around;
 }
 

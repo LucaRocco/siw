@@ -1,5 +1,6 @@
 package it.uniroma3.siw.service;
 
+import it.uniroma3.siw.model.Artista;
 import it.uniroma3.siw.model.Collezione;
 import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.repository.OperaRepository;
@@ -32,5 +33,15 @@ public class OperaService {
         Opera opera = this.findById(idOpera);
         opera.eliminaCollezione(collezione);
         this.operaRepository.save(opera);
+    }
+
+    public void eliminaOperaById(Long idOpera) {
+        this.operaRepository.deleteById(idOpera);
+    }
+
+    public Opera salva(Opera opera, String posizioneImmagine, Artista artista) {
+        opera.setFoto(posizioneImmagine);
+        opera.setAutore(artista);
+        return this.operaRepository.save(opera);
     }
 }

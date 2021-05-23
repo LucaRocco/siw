@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface OperaRepository extends JpaRepository<Opera, Long> {
     List<Opera> findAllByCollezioniContains(Collezione collezione);
+    void deleteById(Long idOpera);
 }

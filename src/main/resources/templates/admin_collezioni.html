@@ -5,16 +5,17 @@
 <navbar th:replace="fragments/admin_fragment.html :: navbar"></navbar>
 <h1>Gestione Collezioni</h1>
 
-<a th:href="@{/admin/crea_collezione}" th:text="#{button.create.collection}"></a>
-
+<form th:action="@{/admin/crea_collezione}">
+    <button class="a-button" type="submit" th:text="#{button.create.collection}"></button>
+</form>
 <table class="styled-table">
     <thead>
     <tr>
-        <th>Collezione</th>
-        <th>Curatore</th>
-        <th>Numero Opere</th>
-        <th>Gestisci</th>
-        <th>Elimina</th>
+        <th th:text="#{collection}"></th>
+        <th th:text="#{curator}"></th>
+        <th th:text="#{operas.number}"></th>
+        <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -22,8 +23,16 @@
         <td th:text="${collezione.nome}"></td>
         <td th:text="${collezione.curatore.nome}"></td>
         <td th:text="${#lists.size(collezione.opere)}"></td>
-        <td><a type="button" th:text="#{button.modify}" th:href="@{/admin/collezione/{id}/gestisci(id=${collezione.id})}"></a></td>
-        <td><a type="button" th:text="#{button.delete}" th:href="@{/admin/collezione/{id}/gestisci(id=${collezione.id})}"></a></td>
+        <td>
+            <form th:action="@{/admin/collezione/{id}/gestisci(id=${collezione.id})}">
+                <button class="a-button" type="submit" th:text="#{button.modify}"></button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/admin/collezione/{id}/elimina(id=${collezione.id})}" method="POST">
+                <button class="a-button" type="submit" th:text="#{button.delete}"></button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

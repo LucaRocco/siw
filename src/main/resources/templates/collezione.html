@@ -1,25 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MuseoRoPi-Collezione</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
-    <link th:href="@{/css/collezione.css}" rel="stylesheet"/>
+<head th:include="fragments/base.html :: headerfiles(title=#{collection.title})">
 </head>
+<head><link th:href="@{/css/collezione.css}" rel="stylesheet"></head>
 
 <body>
-    <nav class="nav-container">
-        <a id="title" class="nav-item" href="home.html">Museo RoPi</a>
-        <div class="border"></div>
-        <a class="nav-item" href="https://www.google.it/">Artisti</a>
-        <div class="border"></div>
-        <a class="nav-item" href="https://www.google.it/">Collezioni</a>
-        <div class="border"></div>
-        <a id="last" class="nav-item" href="https://www.google.it/">Informazioni</a>
-    </nav>
+<nav th:replace="fragments/base.html :: navbar"></nav>
     <div class="collection-container">
         <div id="collection-title">Opere di un'altra epoca (Pippo Baudo)</div>
         <div class="collezione-content">
@@ -40,11 +26,7 @@
     </div>
     </div>
     </div>
-    <footer>
-        <div id="footer-line">
-            Museo RoPi
-        </div>
-    </footer>
-    <div class="background"></div>
+<footer th:replace="fragments/base.html :: footer"></footer>
+<div class="background"></div>
 </body>
 </html>

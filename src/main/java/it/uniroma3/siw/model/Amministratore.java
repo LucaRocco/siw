@@ -1,8 +1,6 @@
 package it.uniroma3.siw.model;
 
-import it.uniroma3.siw.model.base.Persona;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;

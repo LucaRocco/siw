@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/base.html :: headerfiles(title=#{home.title})"></head>
+<head th:replace="fragments/base.html :: headerfiles(title=#{artista.title})">
+    <link th:href="@{/css/artista.css}" rel="stylesheet">
+</head>
+<head><link th:href="@{/css/artista.css}" rel="stylesheet"></head>
 
 <body>
 <nav th:replace="fragments/base.html :: navbar"></nav>

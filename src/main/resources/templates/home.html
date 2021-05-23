@@ -1,30 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="it">
 
-<head th:replace="fragments/base.html :: headerfiles(title=#{home.title})"></head>
+<head th:include="fragments/base.html :: headerfiles(title=#{home.title})">
+</head>
+<head><link th:href="@{/css/home.css}" rel="stylesheet"></head>
 
 <body>
     <nav th:replace="fragments/base.html :: navbar"></nav>
     <div class="gallery-title">Le nostre opere</div>
-    <div class="gallery">
+    <div class="gallery" th:each="opera: ${opere}">
         <div class="gallery-entry">
-            <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
-        </div>
-
-        <div class="gallery-entry">
-            <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
-        </div>
-
-        <div class="gallery-entry">
-            <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
-        </div>
-
-        <div class="gallery-entry">
-            <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
-        </div>
-
-        <div class="gallery-entry">
-                <img src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg">
+            <a th:href="@{/opera/{idOpera}(idOpera=${opera.id})}"><img th:src="${opera.foto}"></a>
         </div>
     </div>
     <footer th:replace="fragments/base.html :: footer"></footer>

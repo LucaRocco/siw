@@ -3,42 +3,48 @@
 <head th:replace="fragments/admin_fragment.html :: header"></head>
 <body>
 <nav th:replace="fragments/admin_fragment.html :: navbar"></nav>
-<form th:action="@{/admin/collezione/{idCollezione}/gestisci(idCollezione=${collezioneCorrente.id})}" method="POST" th:object="${collezioneCorrente}">
+<div class="centered-item">
+<h1 th:text="#{title.collection.information}"></h1>
+<form th:action="@{/admin/collezione/{idCollezione}/gestisci(idCollezione=${collezioneCorrente.id})}" method="POST"
+      th:object="${collezioneCorrente}">
     <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
     </div>
     <input type="hidden" th:field="*{id}"/>
     <div>
-        <span>Nome:</span>
-        <span><input type="text" th:field="*{nome}"/></span>
+        <b><span th:text="text.collection.name"></span></b>
+        <div><input th:placeholder="#{text.collection.name}" type="text" th:field="*{nome}"/></div>
         <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
     </div>
     <div>
-        <span>Descrizione:</span>
-        <span><input type="text" th:field="*{descrizione}"/></span>
+        <b><span th:text="#{text.collection.description}"></span></b>
+        <div><input type="text" th:field="*{descrizione}"/></div>
         <span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
     </div>
     <div>
-        <span><button type="submit" th:text="#{button.send}">Invio</button></span>
+        <span><button class="a-button" type="submit" th:text="#{button.send}">Invio</button></span>
     </div>
 </form>
 
-<form th:action="@{/admin/collezione/{idCollezione}/gestisci/aggiungiOpera(idCollezione=${collezioneCorrente.id})}" method="post">
+<h1 th:text="#{title.add.opera}"></h1>
+<form th:action="@{/admin/collezione/{idCollezione}/gestisci/aggiungiOpera(idCollezione=${collezioneCorrente.id})}"
+      method="post">
     <select name="operaSelezionata">
         <option th:each="opera : *{opere}" th:value="${opera.id}" th:text="${opera.titolo}">
         </option>
     </select>
-    <span><button type="submit" th:text="#{button.add}">Aggiungi</button></span>
+    <span><button class="a-button" type="submit" th:text="#{button.add}">Aggiungi</button></span>
 </form>
 
+<h1 th:text="#{title.operas}"></h1>
 <table class="styled-table">
     <thead>
     <tr>
-        <th>Titolo</th>
-        <th>Anno Realizzazione</th>
-        <th>Descrizione</th>
-        <th>Autore</th>
-        <th>Elimina</th>
+        <th th:text="#{text.title}"></th>
+        <th th:text="#{text.creation.year}"></th>
+        <th th:text="text.description"></th>
+        <th th:text="text.author"></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -47,12 +53,15 @@
         <td th:text="${opera.annoRealizzazione}"></td>
         <td th:text="${opera.descrizione}"></td>
         <td th:text="${opera.autore.nome}"></td>
-        <td><a type="button" th:text="#{button.delete}"
-               th:href="@{/admin/collezione/{id}/gestisci/{idOpera}/elimina(id=${collezioneCorrente.id},idOpera=${opera.id})}"></a></td>
+        <td>
+            <form th:action="@{/admin/collezione/{idCollezione}/gestisci/{idOpera}/elimina(idCollezione=${collezioneCorrente.id},idOpera=${opera.id})}"
+                  method="post">
+                <button class="a-button" type="submit" th:text="#{button.delete}"></button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
-
-
+</div>
 </body>
 </html>
