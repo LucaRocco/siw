@@ -11,7 +11,7 @@
         <div class="artist-header">
             <div class="artist-header-cover"></div>
             <div class="artist-header-content">
-                <img th:src="@{/images/pippo.jpg}" />
+                <img th:src="${artista.foto}" />
 
             </div>
         </div>
@@ -43,7 +43,7 @@
             </div>
         </div>
     </div>
-    <footer th:fragment="fragments/base.html :: footer"></footer>
+    <footer th:replace="fragments/base.html :: footer"></footer>
     <div class="background"></div>
 </body>
 </html>

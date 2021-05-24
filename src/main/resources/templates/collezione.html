@@ -21,9 +21,9 @@
             <div th:text="#{title.operas}"></div>
             <ul>
                 <li th:each="opera : ${collezione.opere}">
+                    <a th:href="@{/opera/{idOpera}(idOpera=${opera.id})}" th:text="${opera.titolo}"></a>
                     <a th:href="@{/artista/{idArtista}(idArtista=${opera.autore.id})}"
-                       th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></a> <a
-                        th:href="${opera.foto}" th:text="${opera.titolo}"></a></li>
+                       th:text="|, ${opera.autore.nome} ${opera.autore.cognome}|"></a>
             </ul>
         </div>
     </div>

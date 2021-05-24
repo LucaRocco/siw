@@ -12,7 +12,7 @@
     </div>
     <input type="hidden" th:field="*{id}"/>
     <div>
-        <b><span th:text="text.collection.name"></span></b>
+        <b><span th:text="#{text.collection.name}"></span></b>
         <div><input th:placeholder="#{text.collection.name}" type="text" th:field="*{nome}"/></div>
         <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
     </div>
@@ -33,7 +33,7 @@
         <option th:each="opera : *{opere}" th:value="${opera.id}" th:text="${opera.titolo}">
         </option>
     </select>
-    <span><button class="a-button" type="submit" th:text="#{button.add}">Aggiungi</button></span>
+    <span><button class="a-button" type="submit" th:text="#{button.add}"></button></span>
 </form>
 
 <h1 th:text="#{title.operas}"></h1>

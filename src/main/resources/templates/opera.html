@@ -13,7 +13,7 @@
     <div id="show-box">
         <div class="sidebar">
             <h4 th:text="${opera.titolo}"></h4>
-            <a id="author" href="artista.html" th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></a>
+            <a id="author" th:href="@{/artista/{idAutore}(idAutore=${opera.autore.id})}" th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></a>
             <p th:text="${opera.descrizione}">
             </p>
             <hr class="mt-4 mb-4"/>
