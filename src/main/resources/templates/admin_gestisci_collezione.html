@@ -52,7 +52,7 @@
         <td th:text="${opera.titolo}"></td>
         <td th:text="${opera.annoRealizzazione}"></td>
         <td th:text="${opera.descrizione}"></td>
-        <td th:text="${opera.autore.nome}"></td>
+        <td th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></td>
         <td>
             <form th:action="@{/admin/collezione/{idCollezione}/gestisci/{idOpera}/elimina(idCollezione=${collezioneCorrente.id},idOpera=${opera.id})}"
                   method="post">

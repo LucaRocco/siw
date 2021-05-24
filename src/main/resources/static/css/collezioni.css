@@ -1,0 +1,23 @@
+.collezioni-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.collezione-item {
+    flex-basis: 25%;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+.collezione-item-cover {
+    height: 150px;
+    width: 100%;
+}
+
+.collezione-item-content {
+    flex: 1;
+}

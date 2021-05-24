@@ -39,9 +39,9 @@ public class OperaService {
         this.operaRepository.deleteById(idOpera);
     }
 
-    public Opera salva(Opera opera, String posizioneImmagine, Artista artista) {
+    public void salva(Opera opera, String posizioneImmagine, Artista artista) {
         opera.setFoto(posizioneImmagine);
         opera.setAutore(artista);
-        return this.operaRepository.save(opera);
+        this.operaRepository.save(opera);
     }
 }

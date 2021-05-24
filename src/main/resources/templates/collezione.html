@@ -2,30 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="fragments/base.html :: headerfiles(title=#{collection.title})">
 </head>
-<head><link th:href="@{/css/collezione.css}" rel="stylesheet"></head>
+<head>
+    <link th:href="@{/css/collezione.css}" rel="stylesheet">
+</head>
 
 <body>
 <nav th:replace="fragments/base.html :: navbar"></nav>
-    <div class="collection-container">
-        <div id="collection-title">Opere di un'altra epoca (Pippo Baudo)</div>
-        <div class="collezione-content">
-            <div class="sidebar">
-                <div>A cura di <b>Alessandro Baudo</b></div>
-                <hr class="mt-4 mb-4" />
-            </div>
-            <div class="border"></div>
-            <div class="opere-list">
-                <div>Opere</div>
-                <ul>
-                    <li><a href="artista.html">Pippo Baudo</a> <a href="opera.html">L'urlo di Munch</a></li>
-                    <li><a href="artista.html">Pippo Baudo</a> <a href="opera.html">L'urlo di Munch</a></li>
-                    <li><a href="artista.html">Pippo Baudo</a> <a href="opera.html">L'urlo di Munch</a></li>
-                </ul>  
-            </div>
+<div class="collection-container">
+    <div id="collection-title" th:text="${collezione.descrizione}"></div>
+    <div class="collezione-content">
+        <div class="sidebar">
+            <span th:text="#{curated.by}"></span>
+            <b th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|"></b>
+            <hr class="mt-4 mb-4"/>
+        </div>
+        <div class="border"></div>
+        <div class="opere-list">
+            <div th:text="#{title.operas}"></div>
+            <ul>
+                <li th:each="opera : ${collezione.opere}">
+                    <a th:href="@{/artista/{idArtista}(idArtista=${opera.autore.id})}"
+                       th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></a> <a
+                        th:href="${opera.foto}" th:text="${opera.titolo}"></a></li>
+            </ul>
         </div>
     </div>
-    </div>
-    </div>
+</div>
+</div>
+</div>
 <footer th:replace="fragments/base.html :: footer"></footer>
 <div class="background"></div>
 </body>

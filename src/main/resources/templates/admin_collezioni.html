@@ -21,7 +21,7 @@
     <tbody>
     <tr th:each="collezione: ${collezioni}">
         <td th:text="${collezione.nome}"></td>
-        <td th:text="${collezione.curatore.nome}"></td>
+        <td th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|"></td>
         <td th:text="${#lists.size(collezione.opere)}"></td>
         <td>
             <form th:action="@{/admin/collezione/{id}/gestisci(id=${collezione.id})}">

@@ -21,7 +21,7 @@
         <span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
     </div>
     <select name="curatoreSelezionato">
-        <option th:each="curatore : ${curatori}" th:value="${curatore.matricola}" th:text="${curatore.cognome}">
+        <option th:each="curatore : ${curatori}" th:value="${curatore.matricola}" th:text="|${curatore.nome} ${curatore.cognome}|">
         </option>
     </select>
     <div>

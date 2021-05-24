@@ -16,13 +16,17 @@ public class Artista extends Persona {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String foto;
+
     private String luogoDiMorte;
 
     private Date dataDiMorte;
 
     private String nazionalita;
 
-    @OneToMany(mappedBy = "autore")
+    private String biografia;
+
+    @OneToMany(mappedBy = "autore", fetch = FetchType.EAGER)
     private List<Opera> opere;
 
     public Artista(String nome, String cognome) {

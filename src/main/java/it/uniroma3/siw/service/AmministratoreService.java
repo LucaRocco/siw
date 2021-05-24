@@ -11,7 +11,6 @@ import java.io.IOException;
 public class AmministratoreService {
     public File convert(MultipartFile file) throws IOException {
         File convFile = new File(file.getOriginalFilename());
-        convFile.createNewFile();
         try (FileOutputStream fos = new FileOutputStream(convFile)) {
             fos.write(file.getBytes());
         }

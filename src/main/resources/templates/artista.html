@@ -19,13 +19,10 @@
 
     <div class="artist-container">
         <div class="artist-sidebar">
-            <h4>Pippo Baudo</h4>
-            01/01/1955, Roma
+            <h4 th:text="|${artista.nome} ${artista.cognome}|"></h4>
+            <span th:text="|${artista.dataDiNascita}, ${artista.luogoDiNascita}|">01/01/1955, Roma</span>
             <hr class="mt-4 mb-4" />
-            <p>
-                Qui ci andrebbe una bellissima biografia per il magnifico artista Pippo Baudo che effettivamente
-                non è un artista ma hei, sono io a decidere cosa mettere in questa pagina e quindi Pippo Baudo è
-                un artista :)
+            <p th:text="${artista.biografia}">
             </p>
             <hr class="mt-4 mb-4" />
         </div>
@@ -36,36 +33,11 @@
             </div>
 
             <div class="artist-content" style="padding-top: 2%;">
-                <div class="artist-content-item">
-                    <img class="image-inside-artist"
-                        src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg" />
+                <div class="artist-content-item" th:each="operaArtista : ${artista.opere}">
+                    <img class="image-inside-artist" th:src="${operaArtista.foto}" />
                     <div class="artist-content-item-description">
-                        <a href="opera.html">Urlo di Munch</a>
-                        <p>LA GRANDE OPERA DI PIPPO BAUDO</p>
-                    </div>
-                </div>
-                <div class="artist-content-item">
-                    <img class="image-inside-artist"
-                        src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg" />
-                    <div class="artist-content-item-description">
-                        <a href="opera.html">Urlo di Munch</a>
-                        <p>LA GRANDE OPERA DI PIPPO BAUDO</p>
-                    </div>
-                </div>
-                <div class="artist-content-item">
-                    <img class="image-inside-artist"
-                        src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg" />
-                    <div class="artist-content-item-description">
-                        <a href="opera.html">Urlo di Munch</a>
-                        <p>LA GRANDE OPERA DI PIPPO BAUDO</p>
-                    </div>
-                </div>
-                <div class="artist-content-item">
-                    <img class="image-inside-artist"
-                        src="http://www.parlandosparlando.com/wp-content/uploads/2013/06/Urlo-Munch.jpg" />
-                    <div class="artist-content-item-description">
-                        <a href="opera.html">Urlo di Munch</a>
-                        <p>LA GRANDE OPERA DI PIPPO BAUDO</p>
+                        <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.id})}" th:text="${operaArtista.titolo}"></a>
+                        <p th:text="${operaArtista.descrizione}"></p>
                     </div>
                 </div>
             </div>
