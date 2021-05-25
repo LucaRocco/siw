@@ -71,10 +71,12 @@ h2 {
 }
 
 .artist-content {
+    margin-top: 50px;
     padding-left: 5%;
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
+    padding-bottom: 50px;
 }
 
 .artist-content-item {
@@ -84,6 +86,8 @@ h2 {
     margin-bottom: 2%;
     min-width: 50%;
     min-height: 50%;
+    max-width: 50%;
+    max-height: 50%;
 }
 
 .artist-content-item-description {
@@ -105,6 +109,7 @@ h2 {
         padding-left: 5%;
         display: flex;
         flex-direction: column;
+        padding-top: 2%;
     }
 
     .artist-container {
@@ -149,10 +154,16 @@ h2 {
         align-items: center;
         flex-direction: column;
         border-bottom: 1px solid black;
+        max-width: 100%;
+        max-height: 100%;
+        min-height: 100%;
+        min-width: 100%;
     }
 
     .artist-content {
-        padding-left: 0%;
+        padding-left: 0;
+        margin-top: 0;
+        padding-bottom: 0;
     }
 
     .artist-content-item-description {

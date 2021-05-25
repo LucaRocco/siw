@@ -3,15 +3,18 @@
 <head th:replace="fragments/base.html :: headerfiles(title=#{artista.title})">
     <link th:href="@{/css/artista.css}" rel="stylesheet">
 </head>
-<head><link th:href="@{/css/artista.css}" rel="stylesheet"></head>
+<head>
+    <link th:href="@{/css/artista.css}" rel="stylesheet">
+</head>
 
 <body>
-<nav th:replace="fragments/base.html :: navbar"></nav>
+<div class="wrap">
+    <nav th:replace="fragments/base.html :: navbar"></nav>
     <div class="artist">
         <div class="artist-header">
             <div class="artist-header-cover"></div>
             <div class="artist-header-content">
-                <img th:src="${artista.foto}" />
+                <img th:src="${artista.foto}"/>
 
             </div>
         </div>
@@ -20,30 +23,32 @@
     <div class="artist-container">
         <div class="artist-sidebar">
             <h4 th:text="|${artista.nome} ${artista.cognome}|"></h4>
-            <span th:text="|${artista.dataDiNascita}, ${artista.luogoDiNascita}|">01/01/1955, Roma</span>
-            <hr class="mt-4 mb-4" />
+            <span th:text="|${artista.dataDiNascita}, ${artista.luogoDiNascita}|"></span>
+            <hr class="mt-4 mb-4"/>
             <p th:text="${artista.biografia}">
             </p>
-            <hr class="mt-4 mb-4" />
+            <hr class="mt-4 mb-4"/>
         </div>
         <div style="margin-left: 2%;">
 
             <div style="border-bottom: 1px solid black;">
-                <b style="margin-top: 0; font-size: 150%;">Opere</b>
+                <b style="margin-top: 0; font-size: 150%;" th:text="#{artwork.title}">Opere</b>
             </div>
 
-            <div class="artist-content" style="padding-top: 2%;">
+            <div class="artist-content">
                 <div class="artist-content-item" th:each="operaArtista : ${artista.opere}">
-                    <img class="image-inside-artist" th:src="${operaArtista.foto}" />
+                    <img class="image-inside-artist" th:src="${operaArtista.foto}"/>
                     <div class="artist-content-item-description">
-                        <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.id})}" th:text="${operaArtista.titolo}"></a>
+                        <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.id})}"
+                           th:text="${operaArtista.titolo}"></a>
                         <p th:text="${operaArtista.descrizione}"></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer th:replace="fragments/base.html :: footer"></footer>
-    <div class="background"></div>
+</div>
+<footer th:replace="fragments/base.html :: footer"></footer>
+<div class="background"></div>
 </body>
 </html>

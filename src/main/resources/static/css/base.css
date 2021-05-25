@@ -1,5 +1,27 @@
 html {
     font-family: 'Didact Gothic', sans-serif;
+    font-size: 20px;
+    height: 100%;
+}
+
+body {
+    margin-top: 0;
+    padding-top: 0;
+    height: 100%;
+}
+
+.page-title {
+    font-size: 300%;
+    text-align: center;
+}
+
+.wrap {
+    min-height: 100%;
+    margin-bottom: -5vw;
+}
+
+.wrap:after {
+    display: block;
 }
 
 .nav-container {
@@ -120,6 +142,7 @@ footer {
     footer {
         font-size: 0.8em;
         background-color: gray;
-        height: 15vw;
+        margin-top: 30px;
+        height: 150px;
     }
 }

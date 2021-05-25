@@ -7,28 +7,23 @@
 </head>
 
 <body>
-<nav th:replace="fragments/base.html :: navbar"></nav>
-<div class="collection-container">
+<div class="wrap">
+    <nav th:replace="fragments/base.html :: navbar"></nav>
+    <div class="padding-before-title"></div>
     <div id="collection-title" th:text="${collezione.descrizione}"></div>
-    <div class="collezione-content">
-        <div class="sidebar">
-            <span th:text="#{curated.by}"></span>
-            <b th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|"></b>
-            <hr class="mt-4 mb-4"/>
-        </div>
-        <div class="border"></div>
-        <div class="opere-list">
-            <div th:text="#{title.operas}"></div>
-            <ul>
-                <li th:each="opera : ${collezione.opere}">
-                    <a th:href="@{/opera/{idOpera}(idOpera=${opera.id})}" th:text="${opera.titolo}"></a>
-                    <a th:href="@{/artista/{idArtista}(idArtista=${opera.autore.id})}"
-                       th:text="|, ${opera.autore.nome} ${opera.autore.cognome}|"></a>
-            </ul>
+
+    <div class="collezione-container">
+        <div class="collezione-content">
+            <div th:each="opera : ${collezione.opere}">
+                <img class="collezione-content-image" th:src="${opera.foto}"/>
+                <div class="collezione-content-description">
+                    <a th:href="@{/opera/{idOpera}(idOpera=${opera.id})}"
+                       th:text="${opera.titolo}"></a>
+                    <p th:text="${opera.descrizione}"></p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 <footer th:replace="fragments/base.html :: footer"></footer>
 <div class="background"></div>

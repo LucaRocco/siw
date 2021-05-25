@@ -38,6 +38,7 @@ h4 {
 
 .sidebar {
     width: 40%;
+    padding-right: 25px;
 }
 
 .image {
@@ -46,7 +47,9 @@ h4 {
 }
 
 .image > img {
-    width: 60%;
+    width: 100%;
+    max-width: 330px;
+    max-height: 500px;
 }
 
 #author {

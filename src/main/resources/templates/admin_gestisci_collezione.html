@@ -26,7 +26,7 @@
     </div>
 </form>
 
-<h1 th:text="#{title.add.opera}"></h1>
+<h1 th:text="#{title.add.artworks}"></h1>
 <form th:action="@{/admin/collezione/{idCollezione}/gestisci/aggiungiOpera(idCollezione=${collezioneCorrente.id})}"
       method="post">
     <select name="operaSelezionata">
@@ -36,7 +36,7 @@
     <span><button class="a-button" type="submit" th:text="#{button.add}"></button></span>
 </form>
 
-<h1 th:text="#{title.operas}"></h1>
+<h1 th:text="#{title.artworks}"></h1>
 <table class="styled-table">
     <thead>
     <tr>

@@ -8,11 +8,11 @@
 </head>
 <body>
 <nav th:fragment="navbar" class="nav-container">
-    <a id="title" class="nav-item" th:href="@{/home}">Museo RoPi</a>
+    <a id="title" class="nav-item" th:href="@{/home}" th:text="#{navbar.home}"></a>
     <div class="border"></div>
-    <a class="nav-item" th:href="@{/admin/collezioni}">Collezioni</a>
+    <a class="nav-item" th:href="@{/admin/collezioni}" th:text="#{navbar.collections}"></a>
     <div class="border"></div>
-    <a class="nav-item" th:href="@{/admin/opere}">Opere</a>
+    <a class="nav-item" th:href="@{/admin/opere}" th:text="#{navbar.artworks}"></a>
 </nav>
 </body>
 </html>

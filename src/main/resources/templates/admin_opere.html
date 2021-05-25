@@ -3,9 +3,9 @@
 <head th:replace="fragments/admin_fragment.html :: header"></head>
 <body>
 <navbar th:replace="fragments/admin_fragment.html :: navbar"></navbar>
-<h1 th:text="#{title.manage.operas}"></h1>
+<h1 th:text="#{title.manage.artwork}"></h1>
 <form th:action="@{/admin/crea_opera}">
-    <button class="a-button" type="submit" th:text="#{button.create.opera}"></button>
+    <button class="a-button" type="submit" th:text="#{button.create.artwork}"></button>
 </form>
 <table class="styled-table">
     <thead>

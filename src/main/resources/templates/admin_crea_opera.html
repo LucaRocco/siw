@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/admin_fragment.html :: header"></head>
 <body>
-<h1 th:text="#{title.create.opera}"></h1>
+<h1 th:text="#{title.create.artwork}"></h1>
 <form th:action="@{/admin/crea_opera}" method="POST" th:object="${nuovaOpera}" enctype="multipart/form-data">
     <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
@@ -29,8 +29,8 @@
     <div>
         <b><span th:text="#{text.author}"></span></b>
     </div>
-    <select name="autoreSelezionato">
-        <option th:each="artista : ${artisti}" th:value="${artista.id}" th:text="|${artista.nome} ${artista.cognome}|">
+    <select name="autoreSelezionato" class="dropdown">
+        <option class="dropdown-element" th:each="artista : ${artisti}" th:value="${artista.id}" th:text="|${artista.nome} ${artista.cognome}|">
         </option>
     </select>
     <div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/base.html :: headerfiles(title=#{artista.title})">
+</head>
+<head>
+    <link th:href="@{/css/artisti.css}" rel="stylesheet">
+    <link th:href="@{css/card-gallery.css}" rel="stylesheet">
+</head>
+<body>
+<div class="wrap">
+    <nav th:replace="fragments/base.html :: navbar"></nav>
+    <div class="page-title" th:text="#{navbar.artists}"></div>
+    <div class="cards">
+        <div class="card-item">
+            <div class="property-card" th:each="artista : ${artisti}">
+                <a th:href="@{/artisti/{idArtista}(idArtista=${artista.id})}">
+                    <div class="property-image" th:style="'background-image:url(' + ${artista.foto} + ');'">
+                    </div>
+                </a>
+                <div class="property-description">
+                    <h5 th:text="|${artista.nome} ${artista.cognome}|"></h5>
+                    <p th:text="${artista.nazionalita}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="background"></div>
+</div>
+<footer th:replace="fragments/base.html :: footer"></footer>
+</body>
+</html>

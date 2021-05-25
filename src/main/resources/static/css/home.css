@@ -1,7 +1,3 @@
-html {
-    font-size: 20px;
-}
-
 body {
     background-image: url("../images/smoky.png");
     background-repeat: no-repeat;
@@ -11,20 +7,12 @@ body {
 .gallery-entry {
     border: 10px solid transparent;
     border-image: url("../images/border.png") 30 round;
-    /* Prevent a column from breaking into multiple columns */
     break-inside: avoid;
-
-    /* Misc */
     margin-bottom: 1rem;
 }
 
 img {
     width: 100%;
-}
-
-.gallery-title {
-    font-size: 300%;
-    text-align: center;
 }
 
 .gallery {
