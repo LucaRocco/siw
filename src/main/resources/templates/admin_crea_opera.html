@@ -20,11 +20,11 @@
     <div>
         <b><span th:text="#{description}"></span></b>
         <div><input type="text" th:field="*{descrizione}"/></div>
-        <span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
     </div>
     <div>
         <b><span th:text="#{text.photo}"></span></b>
         <div><input type="file" name="immagine" accept="image/png, image/jpeg" /></div>
+        <span th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}"></span>
     </div>
     <div>
         <b><span th:text="#{text.author}"></span></b>

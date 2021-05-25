@@ -6,6 +6,8 @@ import it.uniroma3.siw.service.CloudinaryService;
 import it.uniroma3.siw.service.OperaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,11 +17,13 @@ public class OperaController {
     private final OperaService operaService;
     private final ArtistaService artistaService;
     private final CloudinaryService cloudinaryService;
+    private OperaValidator operaValidator;
 
-    public OperaController(OperaService operaService, ArtistaService artistaService, CloudinaryService cloudinaryService) {
+    public OperaController(OperaService operaService, ArtistaService artistaService, CloudinaryService cloudinaryService, OperaValidator operaValidator) {
         this.operaService = operaService;
         this.artistaService = artistaService;
         this.cloudinaryService = cloudinaryService;
+        this.operaValidator = operaValidator;
     }
 
     @GetMapping(path = "/opera/{idOpera}")
@@ -48,12 +52,18 @@ public class OperaController {
     }
 
     @PostMapping(path = "/admin/crea_opera")
-    public String creaOpera(Model model,
-                            @ModelAttribute Opera opera,
+    public String creaOpera(@ModelAttribute("nuovaOpera") Opera nuovaOpera,
+                            Model model,
+                            BindingResult bindingResult,
                             @RequestParam Long autoreSelezionato,
                             @RequestParam("immagine") MultipartFile immagine) {
-        this.operaService.salva(opera, this.cloudinaryService.salvaImmagine(immagine),
-                this.artistaService.findArtistaById(autoreSelezionato));
-        return "redirect:/admin/opere";
+        this.operaValidator.validate(nuovaOpera, bindingResult);
+        if (!bindingResult.hasErrors()) {
+            this.operaService.salva(nuovaOpera, this.cloudinaryService.salvaImmagine(immagine),
+                    this.artistaService.findArtistaById(autoreSelezionato));
+            return "redirect:/admin/opere";
+        }
+        model.addAttribute("artisti", this.artistaService.getArtisti());
+        return "admin_crea_opera";
     }
 }

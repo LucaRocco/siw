@@ -19,8 +19,10 @@ public class Opera {
 
     private Year annoRealizzazione;
 
+    @Column(nullable = false)
     private String descrizione;
 
+    @Column(nullable = false)
     private String foto;
 
     @ManyToMany(mappedBy = "opere")
