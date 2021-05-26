@@ -1,4 +1,4 @@
-package it.uniroma3.siw.controller;
+package it.uniroma3.siw.controller.validator;
 
 import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.service.OperaService;

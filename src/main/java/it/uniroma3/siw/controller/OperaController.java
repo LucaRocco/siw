@@ -1,5 +1,6 @@
 package it.uniroma3.siw.controller;
 
+import it.uniroma3.siw.controller.validator.OperaValidator;
 import it.uniroma3.siw.model.Opera;
 import it.uniroma3.siw.service.ArtistaService;
 import it.uniroma3.siw.service.CloudinaryService;
@@ -7,7 +8,6 @@ import it.uniroma3.siw.service.OperaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

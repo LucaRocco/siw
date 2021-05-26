@@ -1,11 +1,13 @@
 package it.uniroma3.siw.controller;
 
+import it.uniroma3.siw.controller.validator.CollezioneValidator;
 import it.uniroma3.siw.model.Collezione;
 import it.uniroma3.siw.service.CollezioneService;
 import it.uniroma3.siw.service.CuratoreService;
 import it.uniroma3.siw.service.OperaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import static it.uniroma3.siw.utility.Costanti.COLLEZIONE_CORRENTE;
@@ -17,11 +19,13 @@ public class CollezioneController {
     private final CollezioneService collezioneService;
     private final CuratoreService curatoreService;
     private final OperaService operaService;
+    private CollezioneValidator collezioneValidator;
 
-    public CollezioneController(final CollezioneService collezioneService, CuratoreService curatoreService, OperaService operaService) {
+    public CollezioneController(final CollezioneService collezioneService, CuratoreService curatoreService, OperaService operaService, CollezioneValidator collezioneValidator) {
         this.collezioneService = collezioneService;
         this.curatoreService = curatoreService;
         this.operaService = operaService;
+        this.collezioneValidator = collezioneValidator;
     }
 
     @GetMapping(path = {"/admin/collezioni", "/admin", "/admin/"})
@@ -38,9 +42,17 @@ public class CollezioneController {
     }
 
     @PostMapping(path = "/admin/crea_collezione")
-    public String creaCollezione(@RequestParam String curatoreSelezionato, @ModelAttribute Collezione nuovaCollezione, Model model) {
-        this.collezioneService.salvaCollezione(nuovaCollezione, this.curatoreService.findById(curatoreSelezionato));
-        return "redirect:/admin/collezioni";
+    public String creaCollezione(@RequestParam String curatoreSelezionato,
+                                 @ModelAttribute("nuovaCollezione") Collezione nuovaCollezione,
+                                 Model model,
+                                 BindingResult bindingResult) {
+        this.collezioneValidator.validate(nuovaCollezione, bindingResult);
+        if(!bindingResult.hasErrors()) {
+            this.collezioneService.salvaCollezione(nuovaCollezione, this.curatoreService.findById(curatoreSelezionato));
+            return "redirect:/admin/collezioni";
+        }
+        model.addAttribute("curatori", this.curatoreService.getCuratori());
+        return "admin_crea_collezione";
     }
 
     @PostMapping(path = "/admin/collezione/{idCollezione}/gestisci")
