@@ -29,13 +29,11 @@ public class OperaService {
         return this.operaRepository.findAllByCollezioniContains(collezione);
     }
 
-    public void eliminaDaCollezione(Long idOpera, Collezione collezione) {
-        Opera opera = this.findById(idOpera);
-        opera.eliminaCollezione(collezione);
-        this.operaRepository.save(opera);
-    }
-
+    //TODO: Perchè funziona?
     public void eliminaOperaById(Long idOpera) {
+        Opera opera = this.findById(idOpera);
+        for(Collezione collezione : opera.getCollezioni())
+            collezione.eliminaOpera(opera);
         this.operaRepository.deleteById(idOpera);
     }
 

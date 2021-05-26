@@ -9,7 +9,7 @@
 <body>
 <div class="wrap">
     <nav th:replace="fragments/base.html :: navbar"></nav>
-    <div class="page-title" th:text="#{navbar.collection}"></div>
+    <div class="page-title" th:text="#{navbar.collections}"></div>
     <div class="cards">
         <div class="card-item">
             <div class="property-card" th:each="collezione : ${collezioni}">

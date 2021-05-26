@@ -20,4 +20,9 @@ public class HomeController {
         model.addAttribute("opere", this.operaService.getOpere());
         return "home";
     }
+
+    @GetMapping(path = "/informazioni")
+    public String getInformazioniPage(Model model) {
+        return "informazioni";
+    }
 }

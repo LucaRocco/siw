@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/base.html :: headerfiles(title=#{artwork.title})">
+</head>
+<head>
+    <link th:href="@{/css/informazioni.css}" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="wrap">
+    <nav th:replace="fragments/base.html :: navbar"></nav>
+    <div id="information-box">
+        <h4 th:text="#{information.title}"></h4>
+        <div class="sidebar">
+            <hr class="mt-4 mb-4"/>
+            <div>
+                <b th:text="#{information.contacts}"></b>
+                <span class="contact">+39</span>
+            </div>
+            <div><b th:text="#{information.address}"></b></div>
+            <hr class="mt-4 mb-4"/>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/base.html :: footer"></footer>
+</body>
+</html>
