@@ -10,18 +10,11 @@
 <body>
 <div class="wrap">
     <nav th:replace="fragments/base.html :: navbar"></nav>
-    <div class="artist">
-        <div class="artist-header">
-            <div class="artist-header-cover"></div>
-            <div class="artist-header-content">
-                <img th:src="${artista.foto}"/>
-
-            </div>
-        </div>
-    </div>
-
     <div class="artist-container">
         <div class="artist-sidebar">
+            <div class="artist-header-content">
+                <img th:src="${artista.foto}"/>
+            </div>
             <h4 th:text="|${artista.nome} ${artista.cognome}|"></h4>
             <span th:text="|${artista.dataDiNascita}, ${artista.luogoDiNascita}|"></span>
             <hr class="mt-4 mb-4"/>

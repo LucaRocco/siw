@@ -42,28 +42,20 @@ h2 {
     margin-top: 0;
 }
 
-.artist-header-cover {
-    height: 20vw;
-}
-
-.artist-header .artist-header-content {
-    position: relative;
+.artist-header-content {
     display: flex;
+    height: 20vw;
+    max-width: 80%;
 }
 
 .artist-header-content > img {
-    height: 15%;
-    width: 15%;
-    overflow: hidden;
-    margin-top: -17%;
     border-radius: 9px;
-    margin-left: 3%;
 }
 
 .artist-container {
-    padding: 30px 50px;
     display: flex;
     background-color: transparent;
+    padding: 30px 50px 5vw;
 }
 
 .artist-sidebar {
@@ -125,24 +117,20 @@ h2 {
         text-align: center;
     }
 
-    .artist-header-cover {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
-
     h4 {
         text-align: center;
     }
 
     .artist-header-content {
-        display: flex;
+        border-radius: 9%;
         justify-content: center;
+        height: 5%;
+        margin-top: 20px;
+        max-width: 100%;
     }
 
     .artist-header-content > img {
-        height: 40%;
-        width: 40%;
+        max-width: 50%;
     }
 
     .image-inside-artist {
