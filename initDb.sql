@@ -22,4 +22,13 @@ INSERT INTO public.opera (id, anno_realizzazione, descrizione, foto, titolo, aut
 INSERT INTO public.opera (id, anno_realizzazione, descrizione, foto, titolo, autore_id) VALUES (35, E'\\xACED00057372000D6A6176612E74696D652E536572955D84BA1B2248B20C0000787077050B0000074C78', '', 'https://res.cloudinary.com/pickee-server/image/upload/v1622999234/zyga3tyfyfesa8x51n8q.jpg', 'Suzanne Hoschedé', 3);
 INSERT INTO public.opera (id, anno_realizzazione, descrizione, foto, titolo, autore_id) VALUES (31, E'\\xACED00057372000D6A6176612E74696D652E536572955D84BA1B2248B20C0000787077050B0000077F78', '', 'https://live.staticflickr.com/3070/2754329927_22de4fb39b_b.jpg', 'L.H.O.O.Q.', 5);
 
+INSERT INTO public.collezione (id, descrizione, nome, curatore_matricola) VALUES (36, 'Opere del 1800', 'Il 1800', 'cur1');
+INSERT INTO public.collezione (id, descrizione, nome, curatore_matricola) VALUES (37, 'Opere del 1900', 'Il 1900', 'cur2');
+
+INSERT INTO public.collezione_opere (collezioni_id, opere_id) VALUES (36, 34);
+INSERT INTO public.collezione_opere (collezioni_id, opere_id) VALUES (36, 35);
+INSERT INTO public.collezione_opere (collezioni_id, opere_id) VALUES (37, 30);
+INSERT INTO public.collezione_opere (collezioni_id, opere_id) VALUES (37, 31);
+INSERT INTO public.collezione_opere (collezioni_id, opere_id) VALUES (37, 33);
+
 ALTER SEQUENCE hibernate_sequence RESTART WITH 100;
