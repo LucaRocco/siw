@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ArtistaController {
     private final ArtistaService artistaService;
 
-    public ArtistaController(ArtistaService artistaService) {
+    public ArtistaController(final ArtistaService artistaService) {
         this.artistaService = artistaService;
     }
 
     @GetMapping(path = {"/{idArtista}"})
-    public String getArtistaPerId(@PathVariable("idArtista") Long idArtista, Model model) {
+    public String getArtistaPerId(@PathVariable("idArtista") final Long idArtista, final Model model) {
         model.addAttribute("artista", this.artistaService.findArtistaById(idArtista));
         return "artista";
     }
 
     @GetMapping(path = { "", "/" })
-    public String getArtistiPage(Model model) {
+    public String getArtistiPage(final Model model) {
         model.addAttribute("artisti", this.artistaService.getArtisti());
         return "artisti";
     }

@@ -16,13 +16,13 @@ public class HomeController {
     }
 
     @GetMapping(path = "")
-    public String getHomepage(Model model) {
+    public String getHomepage(final Model model) {
         model.addAttribute("opere", this.operaService.getOpere());
         return "home";
     }
 
     @GetMapping(path = "/informazioni")
-    public String getInformazioniPage(Model model) {
+    public String getInformazioniPage(final Model model) {
         return "informazioni";
     }
 }

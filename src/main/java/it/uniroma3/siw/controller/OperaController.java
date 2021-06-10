@@ -19,7 +19,8 @@ public class OperaController {
     private final CloudinaryService cloudinaryService;
     private OperaValidator operaValidator;
 
-    public OperaController(OperaService operaService, ArtistaService artistaService, CloudinaryService cloudinaryService, OperaValidator operaValidator) {
+    public OperaController(final OperaService operaService, final ArtistaService artistaService,
+                           final CloudinaryService cloudinaryService, final OperaValidator operaValidator) {
         this.operaService = operaService;
         this.artistaService = artistaService;
         this.cloudinaryService = cloudinaryService;
@@ -27,36 +28,36 @@ public class OperaController {
     }
 
     @GetMapping(path = "/opera/{idOpera}")
-    public String getOperaById(@PathVariable Long idOpera, Model model) {
+    public String getOperaById(@PathVariable final Long idOpera, final Model model) {
         model.addAttribute("opera", this.operaService.findById(idOpera));
         return "opera";
     }
 
     @GetMapping(path = "/admin/opere")
-    public String getOpere(Model model) {
+    public String getOpere(final Model model) {
         model.addAttribute("opere", this.operaService.getOpere());
         return "admin_opere";
     }
 
     @PostMapping(path = "/admin/opera/{idOpera}/elimina")
-    public String eliminaOpera(@PathVariable("idOpera") Long idOpera, Model model) {
+    public String eliminaOpera(@PathVariable("idOpera") final Long idOpera, final Model model) {
         this.operaService.eliminaOperaById(idOpera);
         return "redirect:/admin/opere";
     }
 
     @GetMapping(path = "/admin/crea_opera")
-    public String getCreaOperaPage(Model model) {
+    public String getCreaOperaPage(final Model model) {
         model.addAttribute("nuovaOpera", new Opera());
         model.addAttribute("artisti", this.artistaService.getArtisti());
         return "admin_crea_opera";
     }
 
     @PostMapping(path = "/admin/crea_opera")
-    public String creaOpera(@ModelAttribute("nuovaOpera") Opera nuovaOpera,
-                            Model model,
-                            BindingResult bindingResult,
-                            @RequestParam Long autoreSelezionato,
-                            @RequestParam("immagine") MultipartFile immagine) {
+    public String creaOpera(@ModelAttribute("nuovaOpera") final Opera nuovaOpera,
+                            final Model model,
+                            final BindingResult bindingResult,
+                            @RequestParam final Long autoreSelezionato,
+                            @RequestParam("immagine") final MultipartFile immagine) {
         this.operaValidator.validate(nuovaOpera, bindingResult);
         if (!bindingResult.hasErrors()) {
             this.operaService.salva(nuovaOpera, this.cloudinaryService.salvaImmagine(immagine),

@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface OperaRepository extends JpaRepository<Opera, Long> {
-    List<Opera> findAllByCollezioniContains(Collezione collezione);
-    void deleteById(Long idOpera);
+    List<Opera> findAllByCollezioniContains(final Collezione collezione);
+    void deleteById(final Long idOpera);
 }

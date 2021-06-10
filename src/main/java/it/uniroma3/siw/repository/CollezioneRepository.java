@@ -4,5 +4,5 @@ import it.uniroma3.siw.model.Collezione;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CollezioneRepository extends JpaRepository<Collezione, Long> {
-    void deleteById(Long idCollezione);
+    void deleteById(final Long idCollezione);
 }

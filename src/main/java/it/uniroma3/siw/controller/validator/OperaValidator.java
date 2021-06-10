@@ -12,18 +12,18 @@ public class OperaValidator implements Validator {
 
     private OperaService operaService;
 
-    public OperaValidator(OperaService operaService) {
+    public OperaValidator(final OperaService operaService) {
         this.operaService = operaService;
     }
 
 
     @Override
-    public boolean supports(Class<?> aClass) {
+    public boolean supports(final Class<?> aClass) {
         return Opera.class.equals(aClass);
     }
 
     @Override
-    public void validate(Object o, Errors errors) {
+    public void validate(final Object o, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titolo", "required");
     }
 }

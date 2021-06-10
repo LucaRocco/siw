@@ -10,19 +10,13 @@ import org.springframework.validation.Validator;
 @Component
 public class CollezioneValidator implements Validator {
 
-    private CollezioneService collezioneService;
-
-    public CollezioneValidator(CollezioneService collezioneService) {
-        this.collezioneService = collezioneService;
-    }
-
     @Override
-    public boolean supports(Class<?> aClass) {
+    public boolean supports(final Class<?> aClass) {
         return Collezione.class.equals(aClass);
     }
 
     @Override
-    public void validate(Object o, Errors errors) {
+    public void validate(final Object o, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome", "required");
         //ValidationUtils.rejectIfEmptyOrWhitespace(errors, "curatore", "required");
     }

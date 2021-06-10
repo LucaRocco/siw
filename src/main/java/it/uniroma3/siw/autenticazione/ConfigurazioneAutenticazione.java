@@ -17,12 +17,12 @@ public class ConfigurazioneAutenticazione extends WebSecurityConfigurerAdapter {
 
     private final DataSource datasource;
 
-    public ConfigurazioneAutenticazione(DataSource dataSource) {
+    public ConfigurazioneAutenticazione(final DataSource dataSource) {
         this.datasource = dataSource;
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers("/admin/**").authenticated()
@@ -37,7 +37,7 @@ public class ConfigurazioneAutenticazione extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    public void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(this.datasource)
                 .authoritiesByUsernameQuery("SELECT username, ruolo FROM amministratore WHERE username=?")
