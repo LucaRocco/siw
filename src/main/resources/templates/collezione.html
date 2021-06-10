@@ -13,15 +13,10 @@
     <div id="collection-title" th:text="${collezione.descrizione}"></div>
 
     <div class="collezione-container">
-        <div class="collezione-content">
-            <div th:each="opera : ${collezione.opere}">
-                <img class="collezione-content-image" th:src="${opera.foto}"/>
-                <div class="collezione-content-description">
-                    <a th:href="@{/opera/{idOpera}(idOpera=${opera.id})}"
-                       th:text="${opera.titolo}"></a>
-                    <p th:text="${opera.descrizione}"></p>
-                </div>
-            </div>
+        <div class="collezione-content" th:each="opera : ${collezione.opere}">
+            <img class="collezione-content-image" th:src="${opera.foto}"/>
+            <a th:href="@{/opera/{idOpera}(idOpera=${opera.id})}"
+               th:text="${opera.titolo}"></a>
         </div>
     </div>
 </div>
