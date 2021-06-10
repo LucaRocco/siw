@@ -25,12 +25,13 @@
         <div style="margin-left: 2%;">
 
             <div style="border-bottom: 1px solid black;">
-                <b style="margin-top: 0; font-size: 150%;" th:text="#{artwork.title}">Opere</b>
+                <b style="margin-top: 0; font-size: 150%;" th:text="#{artwork.title}"></b>
             </div>
 
             <div class="artist-content">
                 <div class="artist-content-item" th:each="operaArtista : ${artista.opere}">
-                    <img class="image-inside-artist" th:src="${operaArtista.foto}"/>
+                    <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.id})}">
+                        <img class="image-inside-artist" th:src="${operaArtista.foto}"/></a>
                     <div class="artist-content-item-description">
                         <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.id})}"
                            th:text="${operaArtista.titolo}"></a>

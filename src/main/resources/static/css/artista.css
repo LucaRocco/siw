@@ -9,37 +9,8 @@ body {
     background-repeat: no-repeat;
 }
 
-#image-container {
-    margin-top: 1%;
-    margin-bottom: 1%;
-    justify-content: space-around;
-    display: flex;
-    position: relative;
-    top: 20%;
-    background-color: transparent;
-}
-
-.artist_image {
-    margin-top: 3%;
-    margin-left: 10%;
-}
-
-.artist_image > img {
-    max-width: 70%;
-    max-height: 70%;
-}
-
-.information {
-    margin-top: 3%;
-}
-
 .image-inside-artist {
-    width: 25%;
-    height: 25%;
-}
-
-h2 {
-    margin-top: 0;
+    width: 33.3%;
 }
 
 .artist-header-content {
@@ -62,29 +33,20 @@ h2 {
     width: 40%;
 }
 
-.artist-content {
-    margin-top: 50px;
-    padding-left: 5%;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    padding-bottom: 50px;
+.artist-content-item {
+    break-inside: avoid;
 }
 
-.artist-content-item {
-    justify-content: center;
-    display: flex;
-    flex: 1;
-    margin-bottom: 2%;
-    min-width: 50%;
-    min-height: 50%;
-    max-width: 50%;
-    max-height: 50%;
+.artist-content {
+    margin-top: 25px;
+    margin-left: 25px;
+    column-count: 2;
+    column-gap: 1rem;
+    width: 100%;
 }
 
 .artist-content-item-description {
-    margin-left: 2%;
-    width: 50%;
+    width: 30%;
 }
 
 .artist-content-item-description > a {
