@@ -58,7 +58,7 @@ public class OperaController {
                             final BindingResult bindingResult,
                             @RequestParam final Long autoreSelezionato,
                             @RequestParam("immagine") final MultipartFile immagine) {
-        this.operaValidator.validate(nuovaOpera, bindingResult);
+        this.operaValidator.validate(nuovaOpera, autoreSelezionato, bindingResult);
         if (!bindingResult.hasErrors()) {
             this.operaService.salva(nuovaOpera, this.cloudinaryService.salvaImmagine(immagine),
                     this.artistaService.findArtistaById(autoreSelezionato));

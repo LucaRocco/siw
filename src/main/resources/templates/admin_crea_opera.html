@@ -29,9 +29,11 @@
         <b><span th:text="#{text.author}"></span></b>
     </div>
     <select name="autoreSelezionato" class="dropdown">
+        <option value="0" th:text="#{dropdown.select.text}"></option>
         <option class="dropdown-element" th:each="artista : ${artisti}" th:value="${artista.id}" th:text="|${artista.nome} ${artista.cognome}|">
         </option>
     </select>
+    <span th:if="${#fields.hasErrors('autore')}" th:errors="*{autore}"></span>
     <div>
         <span><button class="a-button" type="submit" th:text="#{button.send}">Invio</button></span>
     </div>

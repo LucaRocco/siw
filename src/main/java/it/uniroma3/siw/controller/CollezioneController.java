@@ -49,7 +49,7 @@ public class CollezioneController {
                                  @ModelAttribute("nuovaCollezione") final Collezione nuovaCollezione,
                                  final Model model,
                                  final BindingResult bindingResult) {
-        this.collezioneValidator.validate(nuovaCollezione, bindingResult);
+        this.collezioneValidator.validate(nuovaCollezione, curatoreSelezionato, bindingResult);
         if(!bindingResult.hasErrors()) {
             this.collezioneService.salvaCollezione(nuovaCollezione, this.curatoreService.findById(curatoreSelezionato));
             return "redirect:/admin/collezioni";

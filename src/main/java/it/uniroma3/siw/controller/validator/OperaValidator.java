@@ -26,4 +26,12 @@ public class OperaValidator implements Validator {
     public void validate(final Object o, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titolo", "required");
     }
+
+    public void validate(final Object o, final Long idAutoreSelezionato, final Errors errors) {
+        this.validate(o, errors);
+
+        if(idAutoreSelezionato == 0L) {
+            errors.rejectValue("autore", "required");
+        }
+    }
 }
