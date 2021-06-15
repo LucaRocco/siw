@@ -31,7 +31,7 @@ public class ConfigurazioneAutenticazione extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/admin/collezioni")
                 .and().logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/home")
                 .invalidateHttpSession(true)
                 .clearAuthentication(true).permitAll();
     }

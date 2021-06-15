@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head th:fragment="headerfiles(title)">
     <meta charset="UTF-8"/>
@@ -12,11 +12,8 @@
 <body>
 <nav th:fragment="navbar" class="nav-container">
     <a id="title" class="nav-item" th:href="@{/home}" th:text="#{navbar.home}"></a>
-    <div class="border"></div>
     <a class="nav-item" th:href="@{/artisti}" th:text="#{navbar.artists}"></a>
-    <div class="border"></div>
     <a class="nav-item" th:href="@{/collezione}" th:text="#{navbar.collections}"></a>
-    <div class="border"></div>
     <a id="last" class="nav-item" th:href="@{/informazioni}" th:text="#{navbar.information}"></a>
 </nav>
 

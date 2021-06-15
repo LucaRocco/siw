@@ -20,16 +20,16 @@
     </thead>
     <tbody>
     <tr th:each="collezione: ${collezioni}">
-        <td th:text="${collezione.nome}"></td>
-        <td th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|"></td>
-        <td th:text="${#lists.size(collezione.opere)}"></td>
+        <td th:text="${collezione.getNome()}"></td>
+        <td th:text="|${collezione.getCuratore().getNome()} ${collezione.getCuratore().getCognome()}|"></td>
+        <td th:text="${#lists.size(collezione.getOpere())}"></td>
         <td>
-            <form th:action="@{/admin/collezione/{id}/gestisci(id=${collezione.id})}">
+            <form th:action="@{/admin/collezione/{id}/gestisci(id=${collezione.getId()})}">
                 <button class="a-button" type="submit" th:text="#{button.modify}"></button>
             </form>
         </td>
         <td>
-            <form th:action="@{/admin/collezione/{id}/elimina(id=${collezione.id})}" method="POST">
+            <form th:action="@{/admin/collezione/{id}/elimina(id=${collezione.getId()})}" method="POST">
                 <button class="a-button" type="submit" th:text="#{button.delete}"></button>
             </form>
         </td>

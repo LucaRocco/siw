@@ -5,9 +5,15 @@ html {
 }
 
 body {
-    margin-top: 0;
-    padding-top: 0;
-    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .page-title {
@@ -15,45 +21,38 @@ body {
     text-align: center;
 }
 
+
 .wrap {
-    min-height: 100%;
-    margin-bottom: -5vw;
-    display: block;
+    flex: 1;
 }
 
-.wrap:after {
-    display: block;
+nav{
+    height: 3vw;
 }
-
 .nav-container {
     font-size: 200%;
     top: 0;
     left: 0;
     display: flex;
     position: sticky;
-    width: 100%;
+    width: 99.8%;
     z-index: 1;
-    flex-grow: 1;
+    align-items: center;
     justify-content: space-around;
     background-color: #34ccc6;
-    align-items: center;
     border: 2px solid black;
     border-radius: 6px;
 }
 
 .nav-item {
     color: white;
-    display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0.5;
+    flex: 1;
+    border-left: 2px solid black;
+    padding-left: 2%;
 }
 
-.border{
-    padding: 2%;
-    border-right: 2px solid black;
-    height: 60%;
-}
 
 #title {
     padding-left: 0.3em;
@@ -61,24 +60,9 @@ body {
     flex-grow: 3;
 }
 
-/*a {
-    -moz-transition: all 0.3s;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-}*/
-
 a:link {
     text-decoration: none;
 }
-
-/*
-a:hover {
-    -webkit-transform: scale(1.04);
-    -moz-transform: scale(1.04);
-    -o-transform: scale(1.04);
-    -ms-transform: scale(1.04);
-    transform: scale(1.04);
-}*/
 
 #footer-line {
     position: relative;
@@ -88,11 +72,11 @@ a:hover {
     margin-right: 1.5%;
 }
 
+
 footer {
     font-size: 0.8em;
     background-color: gray;
     height: 5vw;
-    display: block;
 }
 
 @media (max-width: 768px) {
@@ -116,14 +100,11 @@ footer {
         border-bottom: none;
     }
 
-    .border{
-        border: 0;
-        padding: 0%;
-    }
 
     .nav-item {
         height: 1%;
         display: flex;
+        border-left: 0;
         border-bottom: 1px solid black;
         width: 100%;
         justify-content: center;

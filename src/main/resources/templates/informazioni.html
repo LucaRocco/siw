@@ -8,21 +8,26 @@
 </head>
 
 <body>
-<div class="wrap">
+<div class="App">
     <nav th:replace="fragments/base.html :: navbar"></nav>
-    <div id="information-box">
-        <h4 th:text="#{information.title}"></h4>
-        <div class="sidebar">
-            <hr class="mt-4 mb-4"/>
-            <div>
-                <b th:text="#{information.contacts}"></b>
-                <span class="contact">+39</span>
+    <div class="wrap">
+        <div id="information-box">
+            <h4 th:text="#{information.title}"></h4>
+            <div class="sidebar">
+                <hr class="mt-4 mb-4"/>
+                <div>
+                    <b th:text="#{information.contacts}"></b>
+                    <span class="contact">+39 06656565</span>
+                </div>
+                <div>
+                    <b th:text="#{information.address}"></b>
+                    <span class="contact">Viale della tecnologia, 23, Roma</span>
+                </div>
+                <hr class="mt-4 mb-4"/>
             </div>
-            <div><b th:text="#{information.address}"></b></div>
-            <hr class="mt-4 mb-4"/>
         </div>
     </div>
+    <footer th:replace="fragments/base.html :: footer"></footer>
 </div>
-<footer th:replace="fragments/base.html :: footer"></footer>
 </body>
 </html>

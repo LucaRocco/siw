@@ -11,16 +11,16 @@
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
     </div>
     <div>
-        <b><span th:text="#{name}"></span></b>
+        <strong><span th:text="#{name}"></span></strong>
         <div><input type="text" th:field="*{nome}"/></div>
         <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
     </div>
     <div>
-        <b><span th:text="#{description}"></span></b>
+        <strong><span th:text="#{description}"></span></strong>
         <div><input type="text" th:field="*{descrizione}"/></div>
     </div>
     <div>
-        <b><span th:text="#{curator}"></span></b>
+        <strong><span th:text="#{curator}"></span></strong>
     </div>
     <select name="curatoreSelezionato">
         <option value="null" th:text="#{dropdown.select.text}"></option>

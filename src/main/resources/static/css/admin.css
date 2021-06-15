@@ -35,7 +35,12 @@
     color: #009879;
 }
 
+.dropdown {
+    margin-top: 2%;
+}
+
 .a-button {
+    margin-top: 2%;
     display: block;
     max-width: 180px;
     min-width: 90px;
@@ -51,7 +56,7 @@
 input[type=text], input[type=password] {
     width: 70%;
     padding: 15px;
-    margin: 0px 0 22px 0;
+    margin: 0px 0 0.3% 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;

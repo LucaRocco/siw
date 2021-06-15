@@ -49,12 +49,28 @@ li > a {
     font-size: 200%;
     font-weight: bold;
     text-align: center;
+    margin-bottom: 1.5%;
+}
+
+#collection-description {
+    text-align: center;
+}
+
+#collection-curator {
+    text-align: center;
     margin-bottom: 2.5%;
 }
 
 .padding-before-title {
     margin-top: 0;
 }
+
+.collezione-content > a {
+    color: black;
+    font-weight: bold;
+}
+
+
 
 @media (max-width: 768px) {
     html {

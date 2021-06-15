@@ -14,12 +14,6 @@ body {
     background-position: inherit;
 }
 
-section {
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 #show-box {
     padding: 30px 50px;
@@ -39,6 +33,7 @@ h4 {
 .sidebar {
     width: 40%;
     padding-right: 25px;
+    padding-left: 25px;
 }
 
 .image {
@@ -47,9 +42,8 @@ h4 {
 }
 
 .image > img {
-    width: 100%;
-    max-width: 330px;
-    max-height: 500px;
+    max-width: 60%;
+    max-height: 60%;
 }
 
 #author {

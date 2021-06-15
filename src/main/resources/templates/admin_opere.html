@@ -19,10 +19,10 @@
     </thead>
     <tbody>
     <tr th:each="opera: *{opere}">
-        <td th:text="${opera.titolo}"></td>
-        <td th:text="${opera.annoRealizzazione}"></td>
-        <td th:text="${opera.descrizione}"></td>
-        <td th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></td>
+        <td th:text="${opera.getTitolo()}"></td>
+        <td th:text="${opera.getAnnoRealizzazione()}"></td>
+        <td th:text="${opera.getDescrizione()}"></td>
+        <td th:text="|${opera.getAutore().getNome()} ${opera.getAutore().getCognome()}|"></td>
         <td>
             <form th:action="@{/admin/opera/{idOpera}/elimina(idOpera=${opera.id})}"
                   method="post">

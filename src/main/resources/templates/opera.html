@@ -8,24 +8,24 @@
 </head>
 
 <body>
-<div class="wrap">
-    <nav th:replace="fragments/base.html :: navbar"></nav>
-    <section>
+<div class="App">
+    <div class="wrap">
+        <nav th:replace="fragments/base.html :: navbar"></nav>
         <div id="show-box">
             <div class="sidebar">
-                <h4 th:text="${opera.titolo}"></h4>
-                <a id="author" th:href="@{/artisti/{idAutore}(idAutore=${opera.autore.id})}"
-                   th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></a>
-                <p th:text="${opera.descrizione}">
+                <h4 th:text="${opera.getTitolo()}"></h4>
+                <a id="author" th:href="@{/artisti/{idAutore}(idAutore=${opera.getAutore().getId()})}"
+                   th:text="|${opera.getAutore().getNome()} ${opera.getAutore().getCognome()}|"></a>
+                <p th:text="${opera.getDescrizione()}">
                 </p>
                 <hr class="mt-4 mb-4"/>
             </div>
             <div class="image">
-                <img th:src="${opera.foto}">
+                <img th:src="${opera.getFoto()}">
             </div>
         </div>
-    </section>
+    </div>
+    <footer th:replace="fragments/base.html :: footer"></footer>
 </div>
-<footer th:replace="fragments/base.html :: footer"></footer>
 </body>
 </html>

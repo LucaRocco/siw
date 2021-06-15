@@ -7,15 +7,17 @@
 </head>
 
 <body>
-<div class="wrap">
+<div class="App">
     <nav th:replace="fragments/base.html :: navbar"></nav>
-    <div class="page-title" th:text="#{text.our.artworks}"></div>
-    <div class="gallery">
-        <div class="gallery-entry" th:each="opera: ${opere}">
-            <a th:href="@{/opera/{idOpera}(idOpera=${opera.id})}"><img th:src="${opera.foto}"></a>
+    <div class="wrap">
+        <div class="page-title" th:text="#{text.our.artworks}"></div>
+        <div class="gallery">
+            <div class="gallery-entry" th:each="opera: ${opere}">
+                <a th:href="@{/opera/{idOpera}(idOpera=${opera.getId()})}"><img th:src="${opera.getFoto()}"></a>
+            </div>
         </div>
     </div>
+    <footer th:replace="fragments/base.html :: footer"></footer>
 </div>
-<footer th:replace="fragments/base.html :: footer"></footer>
 </body>
 </html>

@@ -7,20 +7,25 @@
 </head>
 
 <body>
-<div class="wrap">
+<div class="App">
     <nav th:replace="fragments/base.html :: navbar"></nav>
-    <div class="padding-before-title"></div>
-    <div id="collection-title" th:text="${collezione.descrizione}"></div>
+    <div class="wrap">
+        <div class="padding-before-title"></div>
+        <div id="collection-title" th:text="${collezione.getNome()}"></div>
+        <div id="collection-description" th:text="${collezione.getDescrizione()}"></div>
+        <div id="collection-curator"
+             th:text="|#{curated.by}: ${collezione.getCuratore().getNome()} ${collezione.getCuratore().getCognome()}|"></div>
 
-    <div class="collezione-container">
-        <div class="collezione-content" th:each="opera : ${collezione.opere}">
-            <img class="collezione-content-image" th:src="${opera.foto}"/>
-            <a th:href="@{/opera/{idOpera}(idOpera=${opera.id})}"
-               th:text="${opera.titolo}"></a>
+        <div class="collezione-container">
+            <div class="collezione-content" th:each="opera : ${collezione.getOpere()}">
+                <img class="collezione-content-image" th:src="${opera.getFoto()}"/>
+                <a th:href="@{/opera/{idOpera}(idOpera=${opera.getId()})}"
+                   th:text="${opera.getTitolo()}"></a>
+            </div>
         </div>
     </div>
+    <footer th:replace="fragments/base.html :: footer"></footer>
 </div>
-<footer th:replace="fragments/base.html :: footer"></footer>
 <div class="background"></div>
 </body>
 </html>

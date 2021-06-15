@@ -49,12 +49,12 @@
     </thead>
     <tbody>
     <tr th:each="opera: *{opereCollezione}">
-        <td th:text="${opera.titolo}"></td>
-        <td th:text="${opera.annoRealizzazione}"></td>
-        <td th:text="${opera.descrizione}"></td>
-        <td th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></td>
+        <td th:text="${opera.getTitolo()}"></td>
+        <td th:text="${opera.getAnnoRealizzazione()}"></td>
+        <td th:text="${opera.getDescrizione()}"></td>
+        <td th:text="|${opera.getAutore().getNome()} ${opera.getAutore().getCognome()}|"></td>
         <td>
-            <form th:action="@{/admin/collezione/{idCollezione}/gestisci/{idOpera}/elimina(idCollezione=${collezioneCorrente.id},idOpera=${opera.id})}"
+            <form th:action="@{/admin/collezione/{idCollezione}/gestisci/{idOpera}/elimina(idCollezione=${collezioneCorrente.getId()},idOpera=${opera.getId()})}"
                   method="post">
                 <button class="a-button" type="submit" th:text="#{button.delete}"></button>
             </form>

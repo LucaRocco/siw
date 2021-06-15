@@ -8,40 +8,44 @@
 </head>
 
 <body>
-<div class="wrap">
+<div class="App">
     <nav th:replace="fragments/base.html :: navbar"></nav>
-    <div class="artist-container">
-        <div class="artist-sidebar">
-            <div class="artist-header-content">
-                <img th:src="${artista.foto}"/>
+    <div class="wrap">
+        <div class="artist-container">
+            <div class="artist-sidebar">
+                <div class="artist-header-content">
+                    <img th:src="${artista.getFoto()}"/>
+                </div>
+                <h4 th:text="|${artista.nome} ${artista.cognome}|"></h4>
+                <span th:text="|${artista.getDataDiNascita()}, ${artista.getLuogoDiNascita()}|"></span>
+                <span th:if="${artista.getDataDiMorte()!=null}"
+                      th:text="| - ${artista.getDataDiMorte()}, ${artista.getLuogoDiMorte()}|"></span>
+                <hr class="mt-4 mb-4"/>
+                <p th:text="${artista.getBiografia()}">
+                </p>
+                <hr class="mt-4 mb-4"/>
             </div>
-            <h4 th:text="|${artista.nome} ${artista.cognome}|"></h4>
-            <span th:text="|${artista.dataDiNascita}, ${artista.luogoDiNascita}|"></span>
-            <hr class="mt-4 mb-4"/>
-            <p th:text="${artista.biografia}">
-            </p>
-            <hr class="mt-4 mb-4"/>
-        </div>
-        <div style="margin-left: 2%;">
+            <div style="margin-left: 2%;">
 
-            <div style="border-bottom: 1px solid black;">
-                <b style="margin-top: 0; font-size: 150%;" th:text="#{artwork.title}"></b>
-            </div>
+                <div style="border-bottom: 1px solid black;">
+                    <b style="margin-top: 0; font-size: 150%;" th:text="#{artwork.title}"></b>
+                </div>
 
-            <div class="artist-content">
-                <div class="artist-content-item" th:each="operaArtista : ${artista.opere}">
-                    <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.id})}">
-                        <img class="image-inside-artist" th:src="${operaArtista.foto}"/></a>
-                    <div class="artist-content-item-description">
-                        <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.id})}"
-                           th:text="${operaArtista.titolo}"></a>
+                <div class="artist-content">
+                    <div class="artist-content-item" th:each="operaArtista : ${artista.getOpere()}">
+                        <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.getId()})}">
+                            <img class="image-inside-artist" th:src="${operaArtista.getFoto()}"/></a>
+                        <div class="artist-content-item-description">
+                            <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.getId()})}"
+                               th:text="${operaArtista.getTitolo()}"></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <footer th:replace="fragments/base.html :: footer"></footer>
 </div>
-<footer th:replace="fragments/base.html :: footer"></footer>
 <div class="background"></div>
 </body>
 </html>

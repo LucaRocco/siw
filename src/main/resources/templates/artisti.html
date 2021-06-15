@@ -7,26 +7,27 @@
     <link th:href="@{css/card-gallery.css}" rel="stylesheet">
 </head>
 <body>
-<div class="wrap">
+<div class="App">
     <nav th:replace="fragments/base.html :: navbar"></nav>
-    <div class="page-title" th:text="#{navbar.artists}"></div>
-    <div class="cards">
-        <div class="card-item">
-            <div class="property-card" th:each="artista : ${artisti}">
-                <a th:href="@{/artisti/{idArtista}(idArtista=${artista.id})}">
-                    <div class="property-image" th:style="'background-image:url(' + ${artista.foto} + ');'">
+    <div class="wrap">
+        <div class="page-title" th:text="#{navbar.artists}"></div>
+        <div class="cards">
+            <div class="card-item">
+                <div class="property-card" th:each="artista : ${artisti}">
+                    <a th:href="@{/artisti/{idArtista}(idArtista=${artista.getId()})}">
+                        <div class="property-image" th:style="'background-image:url(' + ${artista.getFoto()} + ');'">
+                        </div>
+                    </a>
+                    <div class="property-description">
+                        <h5 th:text="|${artista.getNome()} ${artista.getCognome()}|"></h5>
+                        <p th:text="${artista.getNazionalita()}"></p>
                     </div>
-                </a>
-                <div class="property-description">
-                    <h5 th:text="|${artista.nome} ${artista.cognome}|"></h5>
-                    <p th:text="${artista.nazionalita}"></p>
                 </div>
             </div>
         </div>
+        <div class="background"></div>
     </div>
-
-    <div class="background"></div>
+    <footer th:replace="fragments/base.html :: footer"></footer>
 </div>
-<footer th:replace="fragments/base.html :: footer"></footer>
 </body>
 </html>
