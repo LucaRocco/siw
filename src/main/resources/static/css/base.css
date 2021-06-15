@@ -84,6 +84,18 @@ footer {
         font-size: 30px;
     }
 
+    body {
+        width: 100%;
+    }
+
+    .gallery {
+        align-items: center;
+    }
+
+    .gallery-entry {
+        width: 90%;
+    }
+
     .nav-container {
         font-size: 150%;
         flex-direction: column;
@@ -91,15 +103,19 @@ footer {
         position: static;
         width: 100%;
         align-items: center;
-        background-color:#34CCC6;
+        background-color: #34CCC6;
         border: 1px solid black;
         border-radius: 6px;
+    }
+
+    nav {
+        height: 100%;
+        width: 100%;
     }
 
     #last {
         border-bottom: none;
     }
-
 
     .nav-item {
         height: 1%;
@@ -108,10 +124,12 @@ footer {
         border-bottom: 1px solid black;
         width: 100%;
         justify-content: center;
+        padding-left: 0;
+        margin-left: 0;
     }
 
     #title {
-        padding-left: 0.3em;
+        padding-left: 0;
         justify-content: center;
     }
 
@@ -128,5 +146,9 @@ footer {
         background-color: gray;
         margin-top: 30px;
         height: 150px;
+    }
+
+    a > img {
+        width: 95%;
     }
 }

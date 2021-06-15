@@ -25,7 +25,7 @@
                 </p>
                 <hr class="mt-4 mb-4"/>
             </div>
-            <div style="margin-left: 2%;">
+            <div class="margin-left">
 
                 <div style="border-bottom: 1px solid black;">
                     <b style="margin-top: 0; font-size: 150%;" th:text="#{artwork.title}"></b>
@@ -33,8 +33,8 @@
 
                 <div class="artist-content">
                     <div class="artist-content-item" th:each="operaArtista : ${artista.getOpere()}">
-                        <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.getId()})}">
-                            <img class="image-inside-artist" th:src="${operaArtista.getFoto()}"/></a>
+                        <span><a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.getId()})}">
+                            <img class="image-inside-artist" th:src="${operaArtista.getFoto()}"/></a></span>
                         <div class="artist-content-item-description">
                             <a th:href="@{/opera/{idOpera}(idOpera=${operaArtista.getId()})}"
                                th:text="${operaArtista.getTitolo()}"></a>
