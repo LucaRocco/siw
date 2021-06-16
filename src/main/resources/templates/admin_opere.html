@@ -5,7 +5,7 @@
 <navbar th:replace="fragments/admin_fragment.html :: navbar"></navbar>
 <h1 th:text="#{title.manage.artwork}"></h1>
 <form th:action="@{/admin/crea_opera}">
-    <button class="a-button" type="submit" th:text="#{button.create.artwork}"></button>
+    <button class="a-button" th:text="#{button.create.artwork}" type="submit"></button>
 </form>
 <table class="styled-table">
     <thead>
@@ -24,9 +24,9 @@
         <td th:text="${opera.getDescrizione()}"></td>
         <td th:text="|${opera.getAutore().getNome()} ${opera.getAutore().getCognome()}|"></td>
         <td>
-            <form th:action="@{/admin/opera/{idOpera}/elimina(idOpera=${opera.id})}"
-                  method="post">
-                <button class="a-button" type="submit" th:text="#{button.delete}"></button>
+            <form method="post"
+                  th:action="@{/admin/opera/{idOpera}/elimina(idOpera=${opera.id})}">
+                <button class="a-button" th:text="#{button.delete}" type="submit"></button>
             </form>
         </td>
     </tr>

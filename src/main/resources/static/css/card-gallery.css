@@ -32,7 +32,7 @@ body {
     transition: 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
     background-size: cover;
     background-repeat: no-repeat;
-    background-image:url('https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg');
+    background-image: url('https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg');
 }
 
 .property-description {

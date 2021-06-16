@@ -1,6 +1,6 @@
 package it.uniroma3.siw.model;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public class Collezione {
 
     @Override
     public boolean equals(Object o) {
-        if(o == null || this.getClass() != o.getClass()) return false;
+        if (o == null || this.getClass() != o.getClass()) return false;
         return Objects.equals(id, ((Collezione) o).getId());
     }
 

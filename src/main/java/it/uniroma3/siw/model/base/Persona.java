@@ -1,6 +1,7 @@
 package it.uniroma3.siw.model.base;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;

@@ -22,7 +22,7 @@ public class ArtistaController {
         return "artista";
     }
 
-    @GetMapping(path = { "", "/" })
+    @GetMapping(path = {"", "/"})
     public String getArtistiPage(final Model model) {
         model.addAttribute("artisti", this.artistaService.getArtisti());
         return "artisti";

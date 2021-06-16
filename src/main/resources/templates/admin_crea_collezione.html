@@ -6,29 +6,30 @@
 <navbar th:replace="fragments/admin_fragment.html :: navbar"></navbar>
 
 <h1 th:text="#{title.create.collection}"></h1>
-<form th:action="@{/admin/crea_collezione}" method="POST" th:object="${nuovaCollezione}">
+<form method="POST" th:action="@{/admin/crea_collezione}" th:object="${nuovaCollezione}">
     <div th:if="${#fields.hasGlobalErrors()}">
         <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
     </div>
     <div>
         <strong><span th:text="#{name}"></span></strong>
-        <div><input type="text" th:field="*{nome}"/></div>
-        <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+        <div><input th:field="*{nome}" type="text"/></div>
+        <span th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></span>
     </div>
     <div>
         <strong><span th:text="#{description}"></span></strong>
-        <div><input type="text" th:field="*{descrizione}"/></div>
+        <div><input th:field="*{descrizione}" type="text"/></div>
     </div>
     <div>
         <strong><span th:text="#{curator}"></span></strong>
     </div>
     <select name="curatoreSelezionato">
-        <option value="null" th:text="#{dropdown.select.text}"></option>
-        <option th:each="curatore : ${curatori}" th:value="${curatore.matricola}" th:text="|${curatore.nome} ${curatore.cognome}|"></option>
+        <option th:text="#{dropdown.select.text}" value="null"></option>
+        <option th:each="curatore : ${curatori}" th:text="|${curatore.nome} ${curatore.cognome}|"
+                th:value="${curatore.matricola}"></option>
     </select>
-    <span th:if="${#fields.hasErrors('curatore')}" th:errors="*{curatore}"></span>
+    <span th:errors="*{curatore}" th:if="${#fields.hasErrors('curatore')}"></span>
     <div>
-        <span><button class="a-button" type="submit" th:text="#{button.send}"></button></span>
+        <span><button class="a-button" th:text="#{button.send}" type="submit"></button></span>
     </div>
 </form>
 

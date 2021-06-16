@@ -1,6 +1,6 @@
 package it.uniroma3.siw.model;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.time.Year;
@@ -34,8 +34,8 @@ public class Opera {
 
     @Override
     public boolean equals(Object o) {
-        if(o == null || o.getClass() != this.getClass()) return false;
-        return this.id.equals(((Opera)o).getId());
+        if (o == null || o.getClass() != this.getClass()) return false;
+        return this.id.equals(((Opera) o).getId());
     }
 
     @Override

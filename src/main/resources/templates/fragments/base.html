@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="headerfiles(title)">
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link th:href="@{/css/base.css}" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
     <title th:text="${title}"></title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav th:fragment="navbar" class="nav-container">
-    <a id="title" class="nav-item" th:href="@{/home}" th:text="#{navbar.home}"></a>
+<nav class="nav-container" th:fragment="navbar">
+    <a class="nav-item" id="title" th:href="@{/home}" th:text="#{navbar.home}"></a>
     <a class="nav-item" th:href="@{/artisti}" th:text="#{navbar.artists}"></a>
     <a class="nav-item" th:href="@{/collezione}" th:text="#{navbar.collections}"></a>
-    <a id="last" class="nav-item" th:href="@{/informazioni}" th:text="#{navbar.information}"></a>
+    <a class="nav-item" id="last" th:href="@{/informazioni}" th:text="#{navbar.information}"></a>
 </nav>
 
 <footer th:fragment="footer">

@@ -19,7 +19,7 @@ public class CloudinaryService {
     public CloudinaryService(final Cloudinary cloudinary) {
         this.cloudinary = cloudinary;
     }
-    
+
     public String salvaImmagine(final MultipartFile file) {
         log.debug("Start - salvaImmagine()");
         try {

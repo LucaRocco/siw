@@ -6,7 +6,7 @@
 <h1>Gestione Collezioni</h1>
 
 <form th:action="@{/admin/crea_collezione}">
-    <button class="a-button" type="submit" th:text="#{button.create.collection}"></button>
+    <button class="a-button" th:text="#{button.create.collection}" type="submit"></button>
 </form>
 <table class="styled-table">
     <thead>
@@ -25,12 +25,12 @@
         <td th:text="${#lists.size(collezione.getOpere())}"></td>
         <td>
             <form th:action="@{/admin/collezione/{id}/gestisci(id=${collezione.getId()})}">
-                <button class="a-button" type="submit" th:text="#{button.modify}"></button>
+                <button class="a-button" th:text="#{button.modify}" type="submit"></button>
             </form>
         </td>
         <td>
-            <form th:action="@{/admin/collezione/{id}/elimina(id=${collezione.getId()})}" method="POST">
-                <button class="a-button" type="submit" th:text="#{button.delete}"></button>
+            <form method="POST" th:action="@{/admin/collezione/{id}/elimina(id=${collezione.getId()})}">
+                <button class="a-button" th:text="#{button.delete}" type="submit"></button>
             </form>
         </td>
     </tr>

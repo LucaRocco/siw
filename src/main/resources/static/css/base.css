@@ -26,9 +26,10 @@ body {
     flex: 1;
 }
 
-nav{
+nav {
     height: 3vw;
 }
+
 .nav-container {
     font-size: 200%;
     top: 0;

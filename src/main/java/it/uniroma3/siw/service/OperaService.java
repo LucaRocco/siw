@@ -39,7 +39,7 @@ public class OperaService {
     public void eliminaOperaById(final Long idOpera) {
         log.debug("Start - eliminaOperaById({})", idOpera);
         Opera opera = this.findById(idOpera);
-        for(Collezione collezione : opera.getCollezioni())
+        for (Collezione collezione : opera.getCollezioni())
             collezione.eliminaOpera(opera);
         this.operaRepository.deleteById(idOpera);
         log.debug("End - eliminaOperaById({})", idOpera);

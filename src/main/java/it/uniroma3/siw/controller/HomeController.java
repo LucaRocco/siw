@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 @Controller
 @RequestMapping(value = {"", "/", "/home"})
@@ -22,7 +21,7 @@ public class HomeController {
 
     @GetMapping(path = "")
     public String getHomepage(final Model model) {
-        ArrayList<Opera> opere= (ArrayList<Opera>) this.operaService.getOpere();
+        ArrayList<Opera> opere = (ArrayList<Opera>) this.operaService.getOpere();
         Collections.shuffle(opere);
         model.addAttribute("opere", opere.subList(0, 5));
         return "home";
