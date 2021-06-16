@@ -4,9 +4,6 @@
 <body>
 <h1 th:text="#{title.create.artwork}"></h1>
 <form enctype="multipart/form-data" method="POST" th:action="@{/admin/crea_opera}" th:object="${nuovaOpera}">
-    <div th:if="${#fields.hasGlobalErrors()}">
-        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
-    </div>
     <div>
         <b><span th:text="#{text.title}"></span></b>
         <div><input th:field="*{titolo}" type="text"/></div>
@@ -24,6 +21,7 @@
     <div>
         <b><span th:text="#{text.photo}"></span></b>
         <div><input accept="image/png, image/jpeg" name="immagine" type="file"/></div>
+        <span th:errors="*{foto}" th:if="${#fields.hasErrors('foto')}"></span>
     </div>
     <div>
         <b><span th:text="#{text.author}"></span></b>

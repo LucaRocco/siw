@@ -30,12 +30,6 @@ public class OperaService {
         return this.operaRepository.findById(idOpera).orElseThrow(() -> new EntityNotFoundException("Opera not found"));
     }
 
-    public List<Opera> findByCollezione(final Collezione collezione) {
-        log.debug("Start - findByCollezione({})", collezione);
-        return this.operaRepository.findAllByCollezioniContains(collezione);
-    }
-
-    //TODO: Perchè funziona?
     public void eliminaOperaById(final Long idOpera) {
         log.debug("Start - eliminaOperaById({})", idOpera);
         Opera opera = this.findById(idOpera);

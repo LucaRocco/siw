@@ -9,12 +9,14 @@ Per raggiungere l'applicazione [clicca qui](https://museo-ropi.herokuapp.com)
 L'amministratore usa il portale per:
 
 - UC1: effettuare il login al portale mediante username e password
-- UC2: creare e un'opera inserendo titolo, autore, data di realizzazione e foto
+- UC2: creare un'opera inserendo titolo, autore, data di realizzazione e foto
 - UC3: aggiugere un'opera a una collezione preselezionata
 - UC4: rimuovere un'opera da una collezione preselezionata
 - UC5: creare una collezione inserendo nome e descrione
 - UC6: modificare il nome e la descrizione di una collezione
-- UC7: effettuare il logout dal portale
+- UC7: eliminare definitivamente un'opera
+- UC8: eliminare definitivamente una collezione
+- UC9: effettuare il logout dal portale
 
 ### Visitatore
 

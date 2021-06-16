@@ -25,13 +25,19 @@ public class OperaValidator implements Validator {
     @Override
     public void validate(final Object o, final Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titolo", "required");
+        if (((Opera) o).getAnnoRealizzazione() == null) {
+            errors.rejectValue("annoRealizzazione", "required");
+        }
     }
 
-    public void validate(final Object o, final Long idAutoreSelezionato, final Errors errors) {
+    public void validate(final Object o, final Long idAutoreSelezionato, final String nomeImmagine, final Errors errors) {
         this.validate(o, errors);
 
         if (idAutoreSelezionato == 0L) {
             errors.rejectValue("autore", "required");
+        }
+        if ("".equals(nomeImmagine)) {
+            errors.rejectValue("foto", "required");
         }
     }
 }

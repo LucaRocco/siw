@@ -60,9 +60,18 @@ public class CollezioneController {
 
     @PostMapping(path = "/admin/collezione/{idCollezione}/gestisci")
     public String aggiornaCollezione(@PathVariable final Long idCollezione,
-                                     @ModelAttribute final Collezione nuovaCollezione) {
-        this.collezioneService.aggiornaCollezione(idCollezione, nuovaCollezione);
-        return "redirect:/admin/collezioni";
+                                     @ModelAttribute final Collezione nuovaCollezione,
+                                     final BindingResult bindingResult,
+                                     final Model model) {
+        this.collezioneValidator.validate(nuovaCollezione, bindingResult);
+        if(!bindingResult.hasErrors()) {
+            this.collezioneService.aggiornaCollezione(idCollezione, nuovaCollezione);
+            return "redirect:/admin/collezioni";
+        }
+        Collezione collezioneCorrente = this.collezioneService.findById(idCollezione);
+        model.addAttribute("opere", this.operaService.getOpere().stream().filter((opera) -> !collezioneCorrente.contieneOpera(opera)).collect(toList()));
+        model.addAttribute(COLLEZIONE_CORRENTE, collezioneCorrente);
+        return "admin_gestisci_collezione";
     }
 
     @GetMapping(path = "/admin/collezione/{idCollezione}/gestisci")
@@ -71,7 +80,6 @@ public class CollezioneController {
         Collezione collezioneCorrente = this.collezioneService.findById(idCollezione);
         model.addAttribute("opere", this.operaService.getOpere().stream().filter((opera) -> !collezioneCorrente.contieneOpera(opera)).collect(toList()));
         model.addAttribute(COLLEZIONE_CORRENTE, collezioneCorrente);
-        model.addAttribute("opereCollezione", this.operaService.findByCollezione(collezioneCorrente));
         return "admin_gestisci_collezione";
     }
 

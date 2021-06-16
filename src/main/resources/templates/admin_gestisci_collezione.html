@@ -7,19 +7,15 @@
     <h1 th:text="#{title.collection.information}"></h1>
     <form method="POST" th:action="@{/admin/collezione/{idCollezione}/gestisci(idCollezione=${collezioneCorrente.id})}"
           th:object="${collezioneCorrente}">
-        <div th:if="${#fields.hasGlobalErrors()}">
-            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
-        </div>
         <input th:field="*{id}" type="hidden"/>
         <div>
-            <b><span th:text="#{text.collection.name}"></span></b>
+            <strong><span th:text="#{text.collection.name}"></span></strong>
             <div><input th:field="*{nome}" th:placeholder="#{text.collection.name}" type="text"/></div>
             <span th:errors="*{nome}" th:if="${#fields.hasErrors('nome')}"></span>
         </div>
         <div>
-            <b><span th:text="#{text.collection.description}"></span></b>
+            <strong><span th:text="#{text.collection.description}"></span></strong>
             <div><input th:field="*{descrizione}" type="text"/></div>
-            <span th:errors="*{descrizione}" th:if="${#fields.hasErrors('descrizione')}"></span>
         </div>
         <div>
             <span><button class="a-button" th:text="#{button.send}" type="submit">Invio</button></span>
@@ -42,13 +38,13 @@
         <tr>
             <th th:text="#{text.title}"></th>
             <th th:text="#{text.creation.year}"></th>
-            <th th:text="text.description"></th>
-            <th th:text="text.author"></th>
+            <th th:text="#{text.description}"></th>
+            <th th:text="#{text.author}"></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="opera: *{opereCollezione}">
+        <tr th:each="opera: ${collezioneCorrente.getOpere()}">
             <td th:text="${opera.getTitolo()}"></td>
             <td th:text="${opera.getAnnoRealizzazione()}"></td>
             <td th:text="${opera.getDescrizione()}"></td>

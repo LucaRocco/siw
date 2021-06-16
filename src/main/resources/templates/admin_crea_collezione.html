@@ -7,9 +7,6 @@
 
 <h1 th:text="#{title.create.collection}"></h1>
 <form method="POST" th:action="@{/admin/crea_collezione}" th:object="${nuovaCollezione}">
-    <div th:if="${#fields.hasGlobalErrors()}">
-        <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
-    </div>
     <div>
         <strong><span th:text="#{name}"></span></strong>
         <div><input th:field="*{nome}" type="text"/></div>
