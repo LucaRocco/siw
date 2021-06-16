@@ -46,4 +46,11 @@ public class Opera {
     public void eliminaCollezione(Collezione collezione) {
         this.collezioni.remove(collezione);
     }
+
+    @Override
+    public String toString() {
+        return "Opera{" +
+                "id=" + id +
+                '}';
+    }
 }

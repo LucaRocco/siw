@@ -25,4 +25,10 @@ public class Curatore extends Persona {
         super(nome, cognome);
     }
 
+    @Override
+    public String toString() {
+        return "Curatore{" +
+                "matricola='" + matricola + '\'' +
+                '}';
+    }
 }

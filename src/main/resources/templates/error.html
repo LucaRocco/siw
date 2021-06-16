@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/base.html :: headerfiles(title=#{collection.title})"></head>
+<body style="height: 100%;">
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <img th:src="@{/images/error.png}"><img>
+    <h2 th:text="#{text.something.wrong}"></h2>
+</div>
+</body>
+</html>

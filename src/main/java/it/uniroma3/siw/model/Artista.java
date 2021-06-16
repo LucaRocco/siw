@@ -33,6 +33,12 @@ public class Artista extends Persona {
         super(nome, cognome);
     }
 
+    @Override
+    public String toString() {
+        return "Artista{" +
+                "id=" + id +
+                '}';
+    }
 }
 
 

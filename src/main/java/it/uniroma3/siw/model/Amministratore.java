@@ -21,4 +21,11 @@ public class Amministratore {
 
     @Column(nullable = false, length = 20)
     private String ruolo;
+
+    @Override
+    public String toString() {
+        return "Amministratore{" +
+                "id=" + id +
+                '}';
+    }
 }

@@ -51,4 +51,11 @@ public class Collezione {
     public int hashCode() {
         return this.id.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "Collezione{" +
+                "id=" + id +
+                '}';
+    }
 }
